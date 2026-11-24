@@ -1,0 +1,86 @@
+LAMMPS (22 Jul 2025 - Update 4)
+KOKKOS mode with Kokkos version 4.6.2 is enabled
+  will use up to 1 GPU(s) per node
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (src/KOKKOS/kokkos.cpp:221)
+  using 1 OpenMP thread(s) per MPI task
+package kokkos
+package kokkos newton on neigh half
+atom_style atomic
+atom_modify map array sort 0 2.0
+units metal
+newton on
+
+read_data /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/PE30/data.lmps
+Reading data file ...
+  orthogonal box = (0 0 0) to (25.77423 25.77423 25.77423)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  2002 atoms
+  read_data CPU = 0.011 seconds
+
+pair_style mliap unified /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/compare1944/mattersim-v1.0.0-1M_mliap.pt
+pair_coeff * * C H
+
+mass 1 12.01115
+mass 2 1.00797
+
+neighbor 0.5 bin
+neigh_modify delay 50 every 2 check yes
+
+thermo_style custom step temp density vol press pe etotal spcpu
+thermo 50
+timestep 0.0005
+
+velocity all create 300.0 42 mom yes rot yes dist gaussian
+fix fMOM all momentum 100 linear 1 1 1 angular
+fix nve all nve
+
+run 200
+Neighbor list info ...
+  update: every = 2 steps, delay = 50 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 5.5
+  ghost atom cutoff = 5.5
+  binsize = 5.5, bins = 5 5 5
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair mliap/kk, perpetual
+      attributes: full, newton on, kokkos_device
+      pair build: full/bin/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+Per MPI rank memory allocation (min/avg/max) = 1055 | 1055 | 1055 Mbytes
+   Step          Temp         Density         Volume         Press          PotEng         TotEng         S/CPU     
+         0   300            0.89999998     17122.103      40861.018     -10683.233     -10605.639      0            
+        50   481.39328      0.89999998     17122.103      36742.397     -10730.429     -10605.917      3.773098     
+       100   505.87856      0.89999998     17122.103      41047.853     -10736.752     -10605.907      4.0395107    
+       150   572.33344      0.89999998     17122.103      36277.874     -10754.062     -10606.029      4.0816889    
+       200   588.77378      0.89999998     17122.103      27823.991     -10758.377     -10606.091      4.1422498    
+Loop time of 49.95 on 1 procs for 200 steps with 2002 atoms
+
+Performance: 0.173 ns/day, 138.750 hours/ns, 4.004 timesteps/s, 8.016 katom-step/s
+72.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 49.477     | 49.477     | 49.477     |   0.0 | 99.05
+Neigh   | 0.03394    | 0.03394    | 0.03394    |   0.0 |  0.07
+Comm    | 0.16935    | 0.16935    | 0.16935    |   0.0 |  0.34
+Output  | 0.00077114 | 0.00077114 | 0.00077114 |   0.0 |  0.00
+Modify  | 0.24854    | 0.24854    | 0.24854    |   0.0 |  0.50
+Other   |            | 0.02022    |            |       |  0.04
+
+Nlocal:           2002 ave        2002 max        2002 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           3722 ave        3722 max        3722 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:       170042 ave      170042 max      170042 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 170042
+Ave neighs/atom = 84.936064
+Neighbor list builds = 4
+Dangerous builds = 4
+Total wall time: 0:00:58

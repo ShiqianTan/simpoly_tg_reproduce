@@ -1,0 +1,74 @@
+LAMMPS (22 Jul 2025 - Update 4)
+KOKKOS mode with Kokkos version 4.6.2 is enabled
+  will use up to 1 GPU(s) per node
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (src/KOKKOS/kokkos.cpp:221)
+  using 1 OpenMP thread(s) per MPI task
+package kokkos
+package kokkos newton on neigh half
+atom_style      atomic
+atom_modify map array sort 0 2.0
+units           metal
+newton          on
+read_data       small_ps.data
+Reading data file ...
+  orthogonal box = (0 0 0) to (37 37 37)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  1944 atoms
+  read_data CPU = 0.045 seconds
+pair_style mliap unified /checkpoints/cueq-0.8.mliap.pt 0
+pair_coeff * * C H
+
+mass      1      12.011
+mass      2      1.008
+neighbor        0.5 bin
+neigh_modify    delay 50 every 2 check yes
+
+thermo_style    custom step temp density vol press ke pe etotal spcpu
+thermo_modify   flush yes
+thermo          100
+timestep        0.0005
+
+velocity        all create 533.0 4928459 mom yes rot yes dist gaussian
+fix             fMOM all momentum 100 linear 1 1 1 angular
+fix             npt all npt temp 533.0 533.0 $(100*dt) aniso 1.000 1.000 $(1000*dt)
+fix             npt all npt temp 533.0 533.0 0.050000000000000002776 aniso 1.000 1.000 $(1000*dt)
+fix             npt all npt temp 533.0 533.0 0.050000000000000002776 aniso 1.000 1.000 0.5
+run             8000
+Neighbor list info ...
+  update: every = 2 steps, delay = 50 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 7
+  ghost atom cutoff = 7
+  binsize = 7, bins = 6 6 6
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair mliap/kk, perpetual
+      attributes: full, newton on, kokkos_device
+      pair build: full/bin/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+Per MPI rank memory allocation (min/avg/max) = 1230 | 1230 | 1230 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+         0   533            0.41051834     50653         -4305.2576      133.86426     -164054.27     -163920.4       0            
+       100   935.00421      0.40028441     51948.028      3514.4189      234.82861     -164206.12     -163971.3       10.33574     
+       200   707.81722      0.38962027     53369.876      8090.7907      177.77004     -164204.02     -164026.25      10.403689    
+       300   684.32982      0.38277531     54324.26       1499.0587      171.87112     -164238.78     -164066.91      11.063917    
+       400   558.17921      0.38174178     54471.339     -2534.4792      140.18808     -164237.59     -164097.41      10.873452    
+       500   527.76142      0.38298188     54294.96      -1766.4697      132.54858     -164251.62     -164119.08      10.931134    
+       600   522.34323      0.38400636     54150.108     -1679.0013      131.18779     -164261.62     -164130.44      10.912338    
+       700   510.06363      0.38503461     54005.498     -721.36157      128.10374     -164260.19     -164132.08      11.129607    
+       800   515.34245      0.38504266     54004.369      1640.7272      129.42952     -164254.19     -164124.76      11.01442     
+       900   547.29313      0.38279084     54322.057      1291.3699      137.45402     -164253.25     -164115.8       10.786791    
+      1000   539.43577      0.37982296     54746.521      973.07919      135.48062     -164248.66     -164113.18      11.137498    
+      1100   527.18279      0.37765908     55060.204      729.49472      132.40326     -164250.09     -164117.69      11.089762    
+      1200   520.05146      0.37444401     55532.963     -525.65147      130.6122      -164252.98     -164122.37      11.134374    
+      1300   524.9396       0.37178007     55930.877     -792.00548      131.83987     -164254.81     -164122.97      11.165441    
+      1400   533.46251      0.3703217      56151.14      -515.90391      133.98042     -164254.38     -164120.39      11.231414    
+      1500   554.89588      0.37052396     56120.488      791.3748       139.36347     -164257.48     -164118.12      11.166699    
+      1600   530.08727      0.37005531     56191.562      729.72183      133.13272     -164251.84     -164118.71      11.279969    
+      1700   517.3306       0.36866111     56404.066     -33.236788      129.92885     -164249.48     -164119.56      11.164556    
+      1800   526.00037      0.37038998     56140.789     -396.45585      132.10629     -164250.19     -164118.08      11.162314    
+      1900   546.98187      0.37354003     55667.355      1002.5011      137.37584     -164254.16     -164116.78      11.207178    
+      2000   531.62983      0.37532453     55402.682     -948.79584      133.52014     -164251.56     -164118.04      11.244211    
+      2100   545.85506      0.37728486     55114.816     -1358.515       137.09284     -164257.25     -164120.16      11.245488    
+      2200   525.17858      0.37982803     54745.79       762.05368      131.89989     -164253.69     -164121.79      11.24695     

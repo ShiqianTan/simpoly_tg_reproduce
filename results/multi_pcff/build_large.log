@@ -1,0 +1,43 @@
+### building PS30L
+POLY PS smiles *CC(C1=CC=CC=C1)* caps ('H*', 'H*') density 0.9 n_ru 30 n_tot 8000 seed 42
+build result PolymerBuildResult(n_tot=8000, n_ru_per_chain=30, n_chains=16, smiles='*CC(C1=CC=CC=C1)*', density=0.9)
+FILE build.emc 4766
+FILE build.esh 553
+FILE system.data 3817310
+FILE system.params 22803
+system.data atoms 8194 vol 98068.25806723954 rho 0.9000000626519096
+atom_types ['C', 'C', 'C', 'H']
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+data.lmps atoms 8194 rho 1.029783129762409 types [np.int64(1), np.int64(2), np.int64(3), np.int64(4)]
+### input PS30L (T 533 -> 213, melt_dt 0.5)
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PS30L n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+### building PMMA30L
+POLY PMMA smiles *CC(C)(C(=O)OC)* caps ('H*', 'H*') density 0.9 n_ru 30 n_tot 8000 seed 42
+build result PolymerBuildResult(n_tot=8000, n_ru_per_chain=30, n_chains=17, smiles='*CC(C)(C(=O)OC)*', density=0.9)
+FILE build.emc 4765
+FILE build.esh 552
+FILE system.data 3615422
+FILE system.params 22633
+system.data atoms 8136 vol 99817.16302962942 rho 0.9000000627614837
+atom_types ['C', 'C', 'C', 'H', 'O', 'O']
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+data.lmps atoms 8136 rho 0.9575436202922429 types [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6)]
+### input PMMA30L (T 533 -> 213, melt_dt 0.25)
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMMA30L n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+### building PE30L
+POLY PE smiles *CC* caps ('H*', 'H*') density 0.9 n_ru 30 n_tot 8000 seed 42
+build result PolymerBuildResult(n_tot=8000, n_ru_per_chain=30, n_chains=43, smiles='*CC*', density=0.9)
+FILE build.emc 4753
+FILE build.esh 540
+FILE system.data 3853529
+FILE system.params 5498
+system.data atoms 8008 vol 68488.41054066255 rho 0.9000000623913754
+atom_types ['C', 'H']
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+data.lmps atoms 8008 rho 0.5854593774567403 types [np.int64(1), np.int64(2)]
+### input PE30L (T 433 -> 113, melt_dt 0.5)
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PE30L n_stages 17 temps [433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213, 193, 173, 153, 133, 113]
+LARGE_BUILD_DONE

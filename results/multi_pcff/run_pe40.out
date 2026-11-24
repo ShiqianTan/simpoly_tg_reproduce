@@ -1,0 +1,12 @@
+########## BUILDS (PE n_ru=40, density 0.9) ##########
+build PE40     EXIT=0
+build PE40cmp  EXIT=0
+build PE40opls EXIT=0
+input PE40 ready
+input PE40cmp ready
+input PE40opls ready
+########## RUNS (slow protocol, 10 ps/stage) ##########
+PE40     EXIT=0
+PE40cmp  EXIT=0
+PE40opls EXIT=0
+PE40_DONE

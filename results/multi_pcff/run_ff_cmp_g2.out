@@ -1,0 +1,7 @@
+########## FF PE30cmp (GPU 2) ##########
+FF PE30cmp EXIT=0
+########## FF PS30cmp (GPU 2) ##########
+FF PS30cmp EXIT=0
+########## FF PE30opls (GPU 2) ##########
+FF PE30opls EXIT=0
+FF_CMP_GPU2 DONE

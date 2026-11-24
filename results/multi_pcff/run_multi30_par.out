@@ -1,0 +1,2 @@
+run_env.sh: line 10: 2658616 Killed                  /usr/local/lammps/bin/lmp -k on g 1 -sf kk -pk kokkos newton on neigh half -in "$1" -log "$2" > "$2.out" 2>&1
+MULTI30 PCFF PARALLEL DONE

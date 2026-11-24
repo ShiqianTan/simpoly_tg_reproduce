@@ -1,0 +1,39 @@
+# EMC .esh template
+
+ITEM OPTIONS
+
+build_dir .
+build_replace true
+density 0.9
+temperature 533.0
+field_increment warn
+field pcff
+ntotal 1944
+replace true
+project system
+seed 42
+pdb false  # setting this to true can cause a segmentation fault
+pdb_compress false
+
+ITEM END
+
+ITEM GROUPS
+
+center_0 *CC(C)(C(=O)OC)*,1,center_0:2,2,center_0:1,1,terminal_0:1,2,terminal_1:1
+terminal_0 H*,1,center_0:1
+terminal_1 H*,1,center_0:2
+
+ITEM END
+
+ITEM CLUSTERS
+
+cluster_0 random,1.0
+
+ITEM END
+
+ITEM POLYMERS
+
+cluster_0
+1 center_0,10,terminal_0,1,terminal_1,1
+
+ITEM END

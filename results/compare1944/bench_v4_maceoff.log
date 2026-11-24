@@ -1,0 +1,84 @@
+LAMMPS (22 Jul 2025 - Update 4)
+KOKKOS mode with Kokkos version 4.6.2 is enabled
+  will use up to 1 GPU(s) per node
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (src/KOKKOS/kokkos.cpp:221)
+  using 1 OpenMP thread(s) per MPI task
+package kokkos
+package kokkos newton on neigh half
+# NVE ns/day benchmark: MACE-OFF23 medium (float32 cueq mliap), 1944-atom EMC PS cell
+atom_style      atomic
+atom_modify     map array sort 0 2.0
+units           metal
+newton          on
+read_data       /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/small_emc/build/data.lmps
+Reading data file ...
+  orthogonal box = (0 0 0) to (28.481733 28.481733 28.481733)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  1944 atoms
+  read_data CPU = 0.063 seconds
+pair_style mliap unified /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/compare1944/MACE-OFF23_medium-mliap32_lammps.pt 0
+pair_coeff * * C C C H
+mass 1 12.010999996910238
+mass 2 12.010999996910238
+mass 3 12.010999996910238
+mass 4 1.0079999997406976
+neighbor        0.5 bin
+neigh_modify    delay 50 every 2 check yes
+thermo_style    custom step temp density vol press ke pe etotal spcpu
+thermo_modify   flush yes
+thermo          100
+timestep        0.0005
+fix fMOM all momentum 100 linear 1 1 1 angular
+velocity all create 533.0 42 mom yes rot yes dist gaussian
+fix nve all nve
+run 500
+Neighbor list info ...
+  update: every = 2 steps, delay = 50 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 5.5
+  ghost atom cutoff = 5.5
+  binsize = 5.5, bins = 6 6 6
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair mliap/kk, perpetual
+      attributes: full, newton on, kokkos_device
+      pair build: full/bin/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+Per MPI rank memory allocation (min/avg/max) = 817.1 | 817.1 | 817.1 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+         0   533            0.89999176     23104.64       5354.6189      133.86426     -1012013.5     -1011879.7      0            
+       100   746.32188      0.89999176     23104.64       25196.02       187.44058     -1012067.3     -1011879.8      1.0355732    
+       200   835.85721      0.89999176     23104.64       26366.473      209.9276      -1012089.8     -1011879.9      1.056371     
+       300   871.4906       0.89999176     23104.64       14645.635      218.87701     -1012098.9     -1011880        1.0651293    
+       400   912.29646      0.89999176     23104.64       10974.817      229.1255      -1012109.2     -1011880.1      1.0697234    
+       500   904.77968      0.89999176     23104.64       10043.031      227.23764     -1012107.4     -1011880.1      1.0708924    
+Loop time of 471.976 on 1 procs for 500 steps with 1944 atoms
+
+Performance: 0.046 ns/day, 524.418 hours/ns, 1.059 timesteps/s, 2.059 katom-step/s
+82.8% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 470.81     | 470.81     | 470.81     |   0.0 | 99.75
+Neigh   | 0.074355   | 0.074355   | 0.074355   |   0.0 |  0.02
+Comm    | 0.39652    | 0.39652    | 0.39652    |   0.0 |  0.08
+Output  | 0.011089   | 0.011089   | 0.011089   |   0.0 |  0.00
+Modify  | 0.61816    | 0.61816    | 0.61816    |   0.0 |  0.13
+Other   |            | 0.06445    |            |       |  0.01
+
+Nlocal:           1944 ave        1944 max        1944 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           2946 ave        2946 max        2946 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:       126960 ave      126960 max      126960 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 126960
+Ave neighs/atom = 65.308642
+Neighbor list builds = 10
+Dangerous builds = 10
+Total wall time: 0:08:24

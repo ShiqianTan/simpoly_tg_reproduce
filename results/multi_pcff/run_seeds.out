@@ -1,0 +1,49 @@
+=== build PS30s1 ===
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PS30s1 n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+=== run PS30s1 ===
+PS30s1 EXIT=0
+=== build PMMA30s1 ===
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMMA30s1 n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+=== run PMMA30s1 ===
+PMMA30s1 EXIT=0
+=== build PMA30s1 ===
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMA30s1 n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+=== run PMA30s1 ===
+PMA30s1 EXIT=0
+=== build PE30s1 ===
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PE30s1 n_stages 17 temps [433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213, 193, 173, 153, 133, 113]
+=== run PE30s1 ===
+PE30s1 EXIT=0
+=== build PS30s2 ===
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PS30s2 n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+=== run PS30s2 ===
+PS30s2 EXIT=0
+=== build PMMA30s2 ===
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMMA30s2 n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+=== run PMMA30s2 ===
+PMMA30s2 EXIT=0
+=== build PMA30s2 ===
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMA30s2 n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+=== run PMA30s2 ===
+PMA30s2 EXIT=0
+=== build PE30s2 ===
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PE30s2 n_stages 17 temps [433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213, 193, 173, 153, 133, 113]
+=== run PE30s2 ===
+PE30s2 EXIT=0
+=== build PS30s3 ===
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PS30s3 n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+=== run PS30s3 ===
+PS30s3 EXIT=0
+=== build PMMA30s3 ===
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMMA30s3 n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+=== run PMMA30s3 ===
+PMMA30s3 EXIT=0
+=== build PMA30s3 ===
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMA30s3 n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+=== run PMA30s3 ===
+PMA30s3 EXIT=0
+=== build PE30s3 ===
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PE30s3 n_stages 17 temps [433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213, 193, 173, 153, 133, 113]
+=== run PE30s3 ===
+PE30s3 EXIT=0
+SEEDS DONE

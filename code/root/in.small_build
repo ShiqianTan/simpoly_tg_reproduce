@@ -1,0 +1,18 @@
+atom_style      atomic
+atom_modify map array sort 0 2.0
+units           metal
+newton          on
+read_restart       final_npt.restart
+pair_style mliap unified /checkpoints/cueq-0.8.mliap.pt 0
+pair_coeff * * C C C H
+
+# original box: (9.219,1.839,6.084)-(50.676,58.057,53.811)
+# final box 30 x 34 x 30 A; keep atoms inset by 1.5 A from every face
+# so that periodic face images are >= 3 A apart (no spurious contacts)
+region          sub block 10.719 37.719 3.339 34.339 7.584 34.584 units box
+group           keep region sub
+group           drop subtract all keep
+delete_atoms    group drop
+change_box      all x final 9.219 39.219 y final 1.839 35.839 z final 6.084 36.084
+
+write_data      small.data

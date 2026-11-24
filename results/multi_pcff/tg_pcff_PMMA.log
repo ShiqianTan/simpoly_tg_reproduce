@@ -1,0 +1,1684 @@
+LAMMPS (22 Jul 2025 - Update 4)
+KOKKOS mode with Kokkos version 4.6.2 is enabled
+  will use up to 1 GPU(s) per node
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (src/KOKKOS/kokkos.cpp:221)
+  using 1 OpenMP thread(s) per MPI task
+package kokkos
+package kokkos newton on neigh half
+# PCFF cooling scan (SHORT protocol) PMMA, EMC cell
+atom_style      full
+units           real
+newton          on
+read_data       /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/PMMA/system.data
+Reading data file ...
+  orthogonal box = (0 0 0) to (28.869926 28.869926 28.869926)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  1976 atoms
+  scanning bonds ...
+  4 = max bonds/atom
+  scanning angles ...
+  6 = max angles/atom
+  scanning dihedrals ...
+  31 = max dihedrals/atom
+  scanning impropers ...
+  4 = max impropers/atom
+  orthogonal box = (0 0 0) to (28.869926 28.869926 28.869926)
+  1 by 1 by 1 MPI processor grid
+  reading bonds ...
+  1963 bonds
+  reading angles ...
+  3640 angles
+  reading dihedrals ...
+  4823 dihedrals
+  reading impropers ...
+  2210 impropers
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     4 = max # of 1-2 neighbors
+    11 = max # of 1-3 neighbors
+    22 = max # of 1-4 neighbors
+    26 = max # of special neighbors
+  special bonds CPU = 0.002 seconds
+  read_data CPU = 0.041 seconds
+kspace_style    pppm 1e-4
+WARNING: Using default KISS FFT with Kokkos GPU backends may give suboptimal performance (src/KOKKOS/pppm_kokkos.cpp:110)
+include         /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/PMMA/system.params
+# LAMMPS parameters created by EMC v9.4.4, build Jul 31 2025 20:33:44
+
+# Variables
+
+variable	seed		index	42
+variable	ntotal		index	1976
+variable	fshape		index	1
+variable	output		index	system
+variable	field		index	pcff/pcff
+variable	location1	index	/opt/conda/envs/simpoly/lib/python3.12/site-packages/pyemc/emc/field/
+variable	nav		index	0.6022141179
+variable	temperature	index	533
+variable	radius		index	5
+variable	nrelax		index	100
+variable	weight_nonbond	index	0.0001
+variable	weight_bond	index	0.0001
+variable	weight_focus	index	1
+variable	cutoff		index	9.5
+variable	charge_cutoff	index	9.5
+variable	kappa		index	4
+variable	density1	index	0.9
+variable	lprevious	index	0
+variable	lphase		index	28.869926135
+variable	f_cluster_0	index	1
+variable	chem_center_0	index	*CC(C)(C(=O)OC)*
+variable	chem_terminal_0	index	H*
+variable	chem_terminal_1	index	H*
+variable	lg_center_0	index	15
+variable	lg_terminal_0	index	1
+variable	lg_terminal_1	index	1
+variable	norm_cluster_0	index	1
+variable	l_cluster_0	index	152
+variable	mg_center_0	index	88.10716
+variable	mg_terminal_0	index	1.00797
+variable	mg_terminal_1	index	1.00797
+variable	m_cluster_0	index	883.08754
+variable	norm		index	152
+variable	n_cluster_0	index	13
+variable	mtotal		index	13041.58752
+variable	nphase1		index	1976
+variable	mphase1		index	13041.58752
+variable	vphase1		index	24062.2934091
+variable	lbox		index	28.869926135
+variable	lphase1		index	28.869926135
+variable	lxx		index	28.869926135
+variable	lyy		index	28.869926135
+variable	lzz		index	28.869926135
+variable	lzy		index	0
+variable	lzx		index	0
+variable	lyx		index	0
+variable	vtotal		index	24062.2934091
+variable	nl_cluster_0	index	13
+
+# Types
+
+variable	type_c		index	1
+variable	type_c1		index	2
+variable	type_c_1	index	3
+variable	type_hc		index	4
+variable	type_o_1	index	5
+variable	type_o_2	index	6
+
+variable	type_bond_c_c	index	1
+variable	type_bond_c_c1	index	2
+variable	type_bond_c_c_1	index	3
+variable	type_bond_c_hc	index	4
+variable	type_bond_c_o_2	index	5
+variable	type_bond_c1_c_1 index	6
+variable	type_bond_c1_hc	index	7
+variable	type_bond_c_1_o_1 index	8
+variable	type_bond_c_1_o_2 index	9
+
+variable	type_angle_c_c_c index	1
+variable	type_angle_c_c_c1 index	2
+variable	type_angle_c_c_c_1 index	3
+variable	type_angle_c_c_hc index	4
+variable	type_angle_c_c1_c index	5
+variable	type_angle_c_c1_c_1 index	6
+variable	type_angle_c_c1_hc index	7
+variable	type_angle_c_c_1_o_1 index	8
+variable	type_angle_c_c_1_o_2 index	9
+variable	type_angle_c_o_2_c_1 index	10
+variable	type_angle_c1_c_hc index	11
+variable	type_angle_c1_c_1_o_1 index	12
+variable	type_angle_c1_c_1_o_2 index	13
+variable	type_angle_c_1_c1_hc index	14
+variable	type_angle_hc_c_hc index	15
+variable	type_angle_hc_c_o_2 index	16
+variable	type_angle_o_1_c_1_o_2 index	17
+
+# Clusters
+
+variable	n0_cluster_0	index	1
+variable	n1_cluster_0	index	13
+variable	nl_cluster_0	index	13
+
+# Flags
+
+variable	flag_charged	index	1
+
+# Masses
+
+mass		1    12.01115  # c
+mass		2    12.01115  # c1
+mass		3    12.01115  # c_1
+mass		4     1.00797  # hc
+mass		5    15.99940  # o_1
+mass		6    15.99940  # o_2
+
+# Potentials
+
+pair_style	lj/class2/coul/long ${cutoff} ${charge_cutoff}  # 9.5
+pair_style	lj/class2/coul/long 9.5 ${charge_cutoff}  
+pair_style	lj/class2/coul/long 9.5 9.5  
+bond_style	class2
+angle_style	class2
+dihedral_style	class2
+improper_style	class2
+pair_modify	mix sixthpower tail yes
+special_bonds	lj/coul 0 0 1
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        1       
+  special bond factors coul:  0        0        1       
+     4 = max # of 1-2 neighbors
+    11 = max # of 1-3 neighbors
+    26 = max # of special neighbors
+  special bonds CPU = 0.001 seconds
+
+# Pair Coeffs
+
+pair_coeff	 1  1    0.05400    4.01000  # c,c
+pair_coeff	 2  2    0.05400    4.01000  # c1,c1
+pair_coeff	 3  3    0.12000    3.81000  # c_1,c_1
+pair_coeff	 4  4    0.02000    2.99500  # hc,hc
+pair_coeff	 5  5    0.26700    3.30000  # o_1,o_1
+pair_coeff	 6  6    0.24000    3.42000  # o_2,o_2
+
+# Bond Coeffs
+
+bond_coeff	1    1.53000  299.67000 -501.77000  679.81000  # c,c
+bond_coeff	2    1.53000  299.67000 -501.77000  679.81000  # c,c1
+bond_coeff	3    1.52020  253.70670 -423.03700  396.90000  # c,c_1
+bond_coeff	4    1.10100  345.00000 -691.89000  844.60000  # c,hc
+bond_coeff	5    1.43000  326.72730 -608.53060  689.03330  # c,o_2
+bond_coeff	6    1.52020  253.70670 -423.03700  396.90000  # c1,c_1
+bond_coeff	7    1.10100  345.00000 -691.89000  844.60000  # c1,hc
+bond_coeff	8    1.20200  851.14030 -1918.48820 2160.76590  # c_1,o_1
+bond_coeff	9    1.36830  367.14810 -794.79080 1055.23190  # c_1,o_2
+
+# Angle Coeffs
+
+angle_coeff	 1  112.67000   39.51600   -7.44300   -9.55830  # c,c,c
+angle_coeff	 2  112.67000   39.51600   -7.44300   -9.55830  # c,c,c1
+angle_coeff	 3  108.52950   51.97470   -9.48510  -10.99850  # c,c,c_1
+angle_coeff	 4  110.77000   41.45300  -10.60400    5.12900  # c,c,hc
+angle_coeff	 5  112.67000   39.51600   -7.44300   -9.55830  # c,c1,c
+angle_coeff	 6  108.52950   51.97470   -9.48510  -10.99850  # c,c1,c_1
+angle_coeff	 7  110.77000   41.45300  -10.60400    5.12900  # c,c1,hc
+angle_coeff	 8  123.14510   55.54310  -17.21230    0.13480  # c,c_1,o_1
+angle_coeff	 9  100.31820   38.86310   -3.83230   -7.98020  # c,c_1,o_2
+angle_coeff	10  113.28800   61.28680  -28.97860    7.99290  # c,o_2,c_1
+angle_coeff	11  110.77000   41.45300  -10.60400    5.12900  # c1,c,hc
+angle_coeff	12  123.14510   55.54310  -17.21230    0.13480  # c1,c_1,o_1
+angle_coeff	13  100.31820   38.86310   -3.83230   -7.98020  # c1,c_1,o_2
+angle_coeff	14  107.73360   40.60990  -28.81210    0.00000  # c_1,c1,hc
+angle_coeff	15  107.66000   39.64100  -12.92100   -2.43180  # hc,c,hc
+angle_coeff	16  107.68800   65.48010  -10.34980    5.88660  # hc,c,o_2
+angle_coeff	17  120.79700   95.34460  -32.28690    6.37780  # o_1,c_1,o_2
+
+# BondBond Coeffs
+
+angle_coeff	 1 bb    0.00000    1.53000    1.53000  # c,c,c
+angle_coeff	 2 bb    0.00000    1.53000    1.53000  # c,c,c1
+angle_coeff	 3 bb    5.41990    1.53000    1.52020  # c,c,c_1
+angle_coeff	 4 bb    3.38720    1.53000    1.10100  # c,c,hc
+angle_coeff	 5 bb    0.00000    1.53000    1.53000  # c,c1,c
+angle_coeff	 6 bb    5.41990    1.53000    1.52020  # c,c1,c_1
+angle_coeff	 7 bb    3.38720    1.53000    1.10100  # c,c1,hc
+angle_coeff	 8 bb   46.06850    1.52020    1.20200  # c,c_1,o_1
+angle_coeff	 9 bb   19.10690    1.52020    1.36830  # c,c_1,o_2
+angle_coeff	10 bb   45.45030    1.43000    1.36830  # c,o_2,c_1
+angle_coeff	11 bb    3.38720    1.53000    1.10100  # c1,c,hc
+angle_coeff	12 bb   46.06850    1.52020    1.20200  # c1,c_1,o_1
+angle_coeff	13 bb   19.10690    1.52020    1.36830  # c1,c_1,o_2
+angle_coeff	14 bb    0.71150    1.52020    1.10100  # c_1,c1,hc
+angle_coeff	15 bb    5.33160    1.10100    1.10100  # hc,c,hc
+angle_coeff	16 bb    5.64540    1.10100    1.43000  # hc,c,o_2
+angle_coeff	17 bb  121.48800    1.20200    1.36830  # o_1,c_1,o_2
+
+# BondAngle Coeffs
+
+angle_coeff	 1 ba    8.01600    8.01600    1.53000    1.53000  # c,c,c
+angle_coeff	 2 ba    8.01600    8.01600    1.53000    1.53000  # c,c,c1
+angle_coeff	 3 ba   18.16780   15.87580    1.53000    1.52020  # c,c,c_1
+angle_coeff	 4 ba   20.75400   11.42100    1.53000    1.10100  # c,c,hc
+angle_coeff	 5 ba    8.01600    8.01600    1.53000    1.53000  # c,c1,c
+angle_coeff	 6 ba   18.16780   15.87580    1.53000    1.52020  # c,c1,c_1
+angle_coeff	 7 ba   20.75400   11.42100    1.53000    1.10100  # c,c1,hc
+angle_coeff	 8 ba   34.99820   37.12980    1.52020    1.20200  # c,c_1,o_1
+angle_coeff	 9 ba    1.34350    4.69780    1.52020    1.36830  # c,c_1,o_2
+angle_coeff	10 ba   41.91160   46.46080    1.43000    1.36830  # c,o_2,c_1
+angle_coeff	11 ba   20.75400   11.42100    1.53000    1.10100  # c1,c,hc
+angle_coeff	12 ba   34.99820   37.12980    1.52020    1.20200  # c1,c_1,o_1
+angle_coeff	13 ba    1.34350    4.69780    1.52020    1.36830  # c1,c_1,o_2
+angle_coeff	14 ba   12.46320    9.17650    1.52020    1.10100  # c_1,c1,hc
+angle_coeff	15 ba   18.10300   18.10300    1.10100    1.10100  # hc,c,hc
+angle_coeff	16 ba    8.68640   57.49750    1.10100    1.43000  # hc,c,o_2
+angle_coeff	17 ba   76.26140   71.87610    1.20200    1.36830  # o_1,c_1,o_2
+
+# Dihedral Coeffs
+
+dihedral_coeff	 1    0.00000    0.00000    0.05140    0.00000   -0.14300    0.00000  # c,c,c,c
+dihedral_coeff	 2    0.00000    0.00000    0.05140    0.00000   -0.14300    0.00000  # c,c,c,c1
+dihedral_coeff	 3    0.09720    0.00000    0.07220    0.00000   -0.25810    0.00000  # c,c,c,c_1
+dihedral_coeff	 4    0.00000    0.00000    0.03160    0.00000   -0.16810    0.00000  # c,c,c,hc
+dihedral_coeff	 5    0.00000    0.00000    0.05140    0.00000   -0.14300    0.00000  # c,c,c1,c
+dihedral_coeff	 6    0.09720    0.00000    0.07220    0.00000   -0.25810    0.00000  # c,c,c1,c_1
+dihedral_coeff	 7    0.00000    0.00000    0.03160    0.00000   -0.16810    0.00000  # c,c,c1,hc
+dihedral_coeff	 8    0.04420    0.00000    0.02920    0.00000    0.05620    0.00000  # c,c,c_1,o_1
+dihedral_coeff	 9    1.83410    0.00000    2.06030    0.00000   -0.01950    0.00000  # c,c,c_1,o_2
+dihedral_coeff	10    0.00000    0.00000    0.03160    0.00000   -0.16810    0.00000  # c,c1,c,hc
+dihedral_coeff	11    0.04420    0.00000    0.02920    0.00000    0.05620    0.00000  # c,c1,c_1,o_1
+dihedral_coeff	12    1.83410    0.00000    2.06030    0.00000   -0.01950    0.00000  # c,c1,c_1,o_2
+dihedral_coeff	13   -2.55940    0.00000    2.20130    0.00000    0.03250    0.00000  # c,c_1,o_2,c
+dihedral_coeff	14   -2.55940    0.00000    2.20130    0.00000    0.03250    0.00000  # c,o_2,c_1,c1
+dihedral_coeff	15    0.00000    0.00000    2.20890    0.00000    0.00000    0.00000  # c,o_2,c_1,o_1
+dihedral_coeff	16    0.09720    0.00000    0.07220    0.00000   -0.25810    0.00000  # c1,c,c,c_1
+dihedral_coeff	17   -0.02280    0.00000    0.02800    0.00000   -0.18630    0.00000  # c_1,c,c,hc
+dihedral_coeff	18   -0.02280    0.00000    0.02800    0.00000   -0.18630    0.00000  # c_1,c1,c,hc
+dihedral_coeff	19    0.00000    0.00000    0.00000    0.00000   -0.19320    0.00000  # c_1,o_2,c,hc
+dihedral_coeff	20   -0.14320    0.00000    0.06170    0.00000   -0.10830    0.00000  # hc,c,c1,hc
+dihedral_coeff	21   -0.18040    0.00000    0.00120    0.00000    0.03710    0.00000  # hc,c1,c_1,o_1
+dihedral_coeff	22   -0.63590    0.00000    1.48070    0.00000   -0.04380    0.00000  # hc,c1,c_1,o_2
+
+# MiddleBondTorsion Coeffs
+
+dihedral_coeff	 1 mbt  -17.78700   -7.18770    0.00000    1.53000  # c,c,c,c
+dihedral_coeff	 2 mbt  -17.78700   -7.18770    0.00000    1.53000  # c,c,c,c1
+dihedral_coeff	 3 mbt   -1.59450    0.22670   -0.69110    1.53000  # c,c,c,c_1
+dihedral_coeff	 4 mbt  -14.87900   -3.65810   -0.31380    1.53000  # c,c,c,hc
+dihedral_coeff	 5 mbt  -17.78700   -7.18770    0.00000    1.53000  # c,c,c1,c
+dihedral_coeff	 6 mbt   -1.59450    0.22670   -0.69110    1.53000  # c,c,c1,c_1
+dihedral_coeff	 7 mbt  -14.87900   -3.65810   -0.31380    1.53000  # c,c,c1,hc
+dihedral_coeff	 8 mbt    0.33880   -0.10960    0.12190    1.52020  # c,c,c_1,o_1
+dihedral_coeff	 9 mbt  -17.32800   -5.79000   -3.21140    1.52020  # c,c,c_1,o_2
+dihedral_coeff	10 mbt  -14.87900   -3.65810   -0.31380    1.53000  # c,c1,c,hc
+dihedral_coeff	11 mbt    0.33880   -0.10960    0.12190    1.52020  # c,c1,c_1,o_1
+dihedral_coeff	12 mbt  -17.32800   -5.79000   -3.21140    1.52020  # c,c1,c_1,o_2
+dihedral_coeff	13 mbt    1.34450    3.55150   -4.92020    1.36830  # c,c_1,o_2,c
+dihedral_coeff	14 mbt    1.34450    3.55150   -4.92020    1.36830  # c,o_2,c_1,c1
+dihedral_coeff	15 mbt    4.26000    0.00000    0.00000    1.36830  # c,o_2,c_1,o_1
+dihedral_coeff	16 mbt   -1.59450    0.22670   -0.69110    1.53000  # c1,c,c,c_1
+dihedral_coeff	17 mbt   -3.50390    1.24580   -0.76100    1.53000  # c_1,c,c,hc
+dihedral_coeff	18 mbt   -3.50390    1.24580   -0.76100    1.53000  # c_1,c1,c,hc
+dihedral_coeff	19 mbt    0.00000    0.00000    0.00000    1.43000  # c_1,o_2,c,hc
+dihedral_coeff	20 mbt  -14.26100   -0.53220   -0.48640    1.53000  # hc,c,c1,hc
+dihedral_coeff	21 mbt    0.23590    0.91390    0.95940    1.52020  # hc,c1,c_1,o_1
+dihedral_coeff	22 mbt  -13.76860   -2.59590    1.19340    1.52020  # hc,c1,c_1,o_2
+
+# EndBondTorsion Coeffs
+
+dihedral_coeff	 1 ebt   -0.07320    0.00000    0.00000   -0.07320    0.00000    0.00000    1.53000    1.53000  # c,c,c,c
+dihedral_coeff	 2 ebt   -0.07320    0.00000    0.00000   -0.07320    0.00000    0.00000    1.53000    1.53000  # c,c,c,c1
+dihedral_coeff	 3 ebt    0.00620   -0.00020    0.00360    0.00550    0.00600   -0.00090    1.53000    1.52020  # c,c,c,c_1
+dihedral_coeff	 4 ebt    0.24860    0.24220   -0.09250    0.08140    0.05910    0.22190    1.53000    1.10100  # c,c,c,hc
+dihedral_coeff	 5 ebt   -0.07320    0.00000    0.00000   -0.07320    0.00000    0.00000    1.53000    1.53000  # c,c,c1,c
+dihedral_coeff	 6 ebt    0.00620   -0.00020    0.00360    0.00550    0.00600   -0.00090    1.53000    1.52020  # c,c,c1,c_1
+dihedral_coeff	 7 ebt    0.24860    0.24220   -0.09250    0.08140    0.05910    0.22190    1.53000    1.10100  # c,c,c1,hc
+dihedral_coeff	 8 ebt    0.26540    0.05030    0.10460   -0.28100    0.08160   -0.15220    1.53000    1.20200  # c,c,c_1,o_1
+dihedral_coeff	 9 ebt    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000    1.53000    1.36830  # c,c,c_1,o_2
+dihedral_coeff	10 ebt    0.24860    0.24220   -0.09250    0.08140    0.05910    0.22190    1.53000    1.10100  # c,c1,c,hc
+dihedral_coeff	11 ebt    0.26540    0.05030    0.10460   -0.28100    0.08160   -0.15220    1.53000    1.20200  # c,c1,c_1,o_1
+dihedral_coeff	12 ebt    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000    1.53000    1.36830  # c,c1,c_1,o_2
+dihedral_coeff	13 ebt    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000    1.52020    1.43000  # c,c_1,o_2,c
+dihedral_coeff	14 ebt    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000    1.43000    1.52020  # c,o_2,c_1,c1
+dihedral_coeff	15 ebt    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000    1.43000    1.20200  # c,o_2,c_1,o_1
+dihedral_coeff	16 ebt    0.00620   -0.00020    0.00360    0.00550    0.00600   -0.00090    1.53000    1.52020  # c1,c,c,c_1
+dihedral_coeff	17 ebt   -0.02040    0.36280   -0.44260   -0.00970   -0.03150   -0.07550    1.52020    1.10100  # c_1,c,c,hc
+dihedral_coeff	18 ebt   -0.02040    0.36280   -0.44260   -0.00970   -0.03150   -0.07550    1.52020    1.10100  # c_1,c1,c,hc
+dihedral_coeff	19 ebt    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000    1.36830    1.10100  # c_1,o_2,c,hc
+dihedral_coeff	20 ebt    0.21300    0.31200    0.07770    0.21300    0.31200    0.07770    1.10100    1.10100  # hc,c,c1,hc
+dihedral_coeff	21 ebt    1.21430    0.28310    0.39160   -0.22980    0.03540    0.38530    1.10100    1.20200  # hc,c1,c_1,o_1
+dihedral_coeff	22 ebt    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000    1.10100    1.36830  # hc,c1,c_1,o_2
+
+# AngleTorsion Coeffs
+
+dihedral_coeff	 1 at    0.38860   -0.31390    0.13890    0.38860   -0.31390    0.13890  112.67000  112.67000  # c,c,c,c
+dihedral_coeff	 2 at    0.38860   -0.31390    0.13890    0.38860   -0.31390    0.13890  112.67000  112.67000  # c,c,c,c1
+dihedral_coeff	 3 at   -0.26070    0.32030   -0.22830    0.05150   -0.06740   -0.04740  112.67000  108.52950  # c,c,c,c_1
+dihedral_coeff	 4 at   -0.24540    0.00000   -0.11360    0.31130    0.45160   -0.19880  112.67000  110.77000  # c,c,c,hc
+dihedral_coeff	 5 at    0.38860   -0.31390    0.13890    0.38860   -0.31390    0.13890  112.67000  112.67000  # c,c,c1,c
+dihedral_coeff	 6 at   -0.26070    0.32030   -0.22830    0.05150   -0.06740   -0.04740  112.67000  108.52950  # c,c,c1,c_1
+dihedral_coeff	 7 at   -0.24540    0.00000   -0.11360    0.31130    0.45160   -0.19880  112.67000  110.77000  # c,c,c1,hc
+dihedral_coeff	 8 at    0.08850   -1.37030   -0.54520    0.67500    0.59650    0.67250  108.52950  123.14510  # c,c,c_1,o_1
+dihedral_coeff	 9 at    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000  108.52950  100.31820  # c,c,c_1,o_2
+dihedral_coeff	10 at   -0.24540    0.00000   -0.11360    0.31130    0.45160   -0.19880  112.67000  110.77000  # c,c1,c,hc
+dihedral_coeff	11 at    0.08850   -1.37030   -0.54520    0.67500    0.59650    0.67250  108.52950  123.14510  # c,c1,c_1,o_1
+dihedral_coeff	12 at    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000  108.52950  100.31820  # c,c1,c_1,o_2
+dihedral_coeff	13 at    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000  100.31820  113.28800  # c,c_1,o_2,c
+dihedral_coeff	14 at    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000  113.28800  100.31820  # c,o_2,c_1,c1
+dihedral_coeff	15 at    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000  113.28800  120.79700  # c,o_2,c_1,o_1
+dihedral_coeff	16 at   -0.26070    0.32030   -0.22830    0.05150   -0.06740   -0.04740  112.67000  108.52950  # c1,c,c,c_1
+dihedral_coeff	17 at   -0.74660   -0.94480   -0.63210    0.01620    1.42110   -1.40920  108.52950  110.77000  # c_1,c,c,hc
+dihedral_coeff	18 at   -0.74660   -0.94480   -0.63210    0.01620    1.42110   -1.40920  108.52950  110.77000  # c_1,c1,c,hc
+dihedral_coeff	19 at    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000  113.28800  107.68800  # c_1,o_2,c,hc
+dihedral_coeff	20 at   -0.80850    0.55690   -0.24660   -0.80850    0.55690   -0.24660  110.77000  110.77000  # hc,c,c1,hc
+dihedral_coeff	21 at    9.12990   -0.48470    0.35820   -1.49460    0.73080   -0.20830  107.73360  123.14510  # hc,c1,c_1,o_1
+dihedral_coeff	22 at    0.00000    0.00000    0.00000    0.00000    0.00000    0.00000  107.73360  100.31820  # hc,c1,c_1,o_2
+
+# AngleAngleTorsion Coeffs
+
+dihedral_coeff	 1 aat  -22.04500  112.67000  112.67000  # c,c,c,c
+dihedral_coeff	 2 aat  -22.04500  112.67000  112.67000  # c,c,c,c1
+dihedral_coeff	 3 aat   -0.38010  112.67000  108.52950  # c,c,c,c_1
+dihedral_coeff	 4 aat  -16.16400  112.67000  110.77000  # c,c,c,hc
+dihedral_coeff	 5 aat  -22.04500  112.67000  112.67000  # c,c,c1,c
+dihedral_coeff	 6 aat   -0.38010  112.67000  108.52950  # c,c,c1,c_1
+dihedral_coeff	 7 aat  -16.16400  112.67000  110.77000  # c,c,c1,hc
+dihedral_coeff	 8 aat   -8.01900  108.52950  123.14510  # c,c,c_1,o_1
+dihedral_coeff	 9 aat    0.00000  108.52950  100.31820  # c,c,c_1,o_2
+dihedral_coeff	10 aat  -16.16400  112.67000  110.77000  # c,c1,c,hc
+dihedral_coeff	11 aat   -8.01900  108.52950  123.14510  # c,c1,c_1,o_1
+dihedral_coeff	12 aat    0.00000  108.52950  100.31820  # c,c1,c_1,o_2
+dihedral_coeff	13 aat    0.00000  100.31820  113.28800  # c,c_1,o_2,c
+dihedral_coeff	14 aat    0.00000  113.28800  100.31820  # c,o_2,c_1,c1
+dihedral_coeff	15 aat    0.00000  113.28800  120.79700  # c,o_2,c_1,o_1
+dihedral_coeff	16 aat   -0.38010  112.67000  108.52950  # c1,c,c,c_1
+dihedral_coeff	17 aat   -5.36240  108.52950  110.77000  # c_1,c,c,hc
+dihedral_coeff	18 aat   -5.36240  108.52950  110.77000  # c_1,c1,c,hc
+dihedral_coeff	19 aat    0.00000  113.28800  107.68800  # c_1,o_2,c,hc
+dihedral_coeff	20 aat  -12.56400  110.77000  110.77000  # hc,c,c1,hc
+dihedral_coeff	21 aat  -15.34960  107.73360  123.14510  # hc,c1,c_1,o_1
+dihedral_coeff	22 aat    0.00000  107.73360  100.31820  # hc,c1,c_1,o_2
+
+# BondBond13 Coeffs
+
+dihedral_coeff	 1 bb13    0.00000    1.53000    1.53000  # c,c,c,c
+dihedral_coeff	 2 bb13    0.00000    1.53000    1.53000  # c,c,c,c1
+dihedral_coeff	 3 bb13    0.00000    1.53000    1.52020  # c,c,c,c_1
+dihedral_coeff	 4 bb13    0.00000    1.53000    1.10100  # c,c,c,hc
+dihedral_coeff	 5 bb13    0.00000    1.53000    1.53000  # c,c,c1,c
+dihedral_coeff	 6 bb13    0.00000    1.53000    1.52020  # c,c,c1,c_1
+dihedral_coeff	 7 bb13    0.00000    1.53000    1.10100  # c,c,c1,hc
+dihedral_coeff	 8 bb13    0.00000    1.53000    1.20200  # c,c,c_1,o_1
+dihedral_coeff	 9 bb13    0.00000    1.53000    1.36830  # c,c,c_1,o_2
+dihedral_coeff	10 bb13    0.00000    1.53000    1.10100  # c,c1,c,hc
+dihedral_coeff	11 bb13    0.00000    1.53000    1.20200  # c,c1,c_1,o_1
+dihedral_coeff	12 bb13    0.00000    1.53000    1.36830  # c,c1,c_1,o_2
+dihedral_coeff	13 bb13    0.00000    1.52020    1.43000  # c,c_1,o_2,c
+dihedral_coeff	14 bb13    0.00000    1.43000    1.52020  # c,o_2,c_1,c1
+dihedral_coeff	15 bb13    0.00000    1.43000    1.20200  # c,o_2,c_1,o_1
+dihedral_coeff	16 bb13    0.00000    1.53000    1.52020  # c1,c,c,c_1
+dihedral_coeff	17 bb13    0.00000    1.52020    1.10100  # c_1,c,c,hc
+dihedral_coeff	18 bb13    0.00000    1.52020    1.10100  # c_1,c1,c,hc
+dihedral_coeff	19 bb13    0.00000    1.36830    1.10100  # c_1,o_2,c,hc
+dihedral_coeff	20 bb13    0.00000    1.10100    1.10100  # hc,c,c1,hc
+dihedral_coeff	21 bb13    0.00000    1.10100    1.20200  # hc,c1,c_1,o_1
+dihedral_coeff	22 bb13    0.00000    1.10100    1.36830  # hc,c1,c_1,o_2
+
+# Improper Coeffs
+
+improper_coeff	 1    0.00000    0.00000  # c,c,c,c
+improper_coeff	 2    0.00000    0.00000  # c,c,c,c_1
+improper_coeff	 3    0.00000    0.00000  # c,c,c,hc
+improper_coeff	 4    0.00000    0.00000  # c,c,c1,hc
+improper_coeff	 5    0.00000    0.00000  # c,c,hc,hc
+improper_coeff	 6    0.00000    0.00000  # c,c1,hc,hc
+improper_coeff	 7    0.00000    0.00000  # c,hc,hc,hc
+improper_coeff	 8    0.00000    0.00000  # c,hc,hc,o_2
+improper_coeff	 9    0.00000    0.00000  # c1,c,c,c_1
+improper_coeff	10    0.00000    0.00000  # c1,c,c,hc
+improper_coeff	11    0.00000    0.00000  # c1,c,c_1,hc
+improper_coeff	12    0.00000    0.00000  # c1,c,hc,c_1
+improper_coeff	13   46.92640    0.00000  # c_1,c,o_2,o_1
+improper_coeff	14   46.92640    0.00000  # c_1,c1,o_2,o_1
+
+# AngleAngle Coeffs
+
+improper_coeff	 1 aa   -0.17290   -0.17290   -0.17290  112.67000  112.67000  112.67000  # c,c,c,c
+improper_coeff	 2 aa    0.00000    0.00000    0.00000  112.67000  108.52950  108.52950  # c,c,c,c_1
+improper_coeff	 3 aa   -1.31990   -1.31990    0.11840  112.67000  110.77000  110.77000  # c,c,c,hc
+improper_coeff	 4 aa   -1.31990   -1.31990    0.11840  112.67000  110.77000  110.77000  # c,c,c1,hc
+improper_coeff	 5 aa    0.27380   -0.48250    0.27380  110.77000  110.77000  107.66000  # c,c,hc,hc
+improper_coeff	 6 aa    0.27380   -0.48250    0.27380  110.77000  110.77000  107.66000  # c,c1,hc,hc
+improper_coeff	 7 aa   -0.31570   -0.31570   -0.31570  107.66000  107.66000  107.66000  # c,hc,hc,hc
+improper_coeff	 8 aa    0.00000    0.00000    0.00000  107.66000  107.68800  107.68800  # c,hc,hc,o_2
+improper_coeff	 9 aa    0.00000    0.00000    0.00000  112.67000  108.52950  108.52950  # c1,c,c,c_1
+improper_coeff	10 aa   -1.31990   -1.31990    0.11840  112.67000  110.77000  110.77000  # c1,c,c,hc
+improper_coeff	11 aa    2.04030   -1.82020    1.08270  108.52950  110.77000  107.73360  # c1,c,c_1,hc
+improper_coeff	12 aa    1.08270   -1.82020    2.04030  110.77000  108.52950  107.73360  # c1,c,hc,c_1
+improper_coeff	13 aa    0.00000    0.00000    0.00000  100.31820  123.14510  120.79700  # c_1,c,o_2,o_1
+improper_coeff	14 aa    0.00000    0.00000    0.00000  100.31820  123.14510  120.79700  # c_1,c1,o_2,o_1
+
+neighbor        1.5 bin
+neigh_modify    delay 50 every 2 check yes
+thermo_style    custom step temp density vol press ke pe etotal spcpu
+thermo_modify   flush yes
+thermo          125
+timestep        0.5
+fix fMOM all momentum 100 linear 1 1 1 angular
+velocity all create 533.0 42 mom yes rot yes dist gaussian
+
+# Minimize
+min_style cg
+minimize 1e-4 1e-6 1000 10000
+Switching to 'neigh_modify every 1 delay 0 check yes' setting during minimization
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25273041
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.017970395
+  estimated relative force accuracy = 5.4117312e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 11
+  ghost atom cutoff = 11
+  binsize = 11, bins = 3 3 3
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/class2/coul/long/kk, perpetual
+      attributes: half, newton on, kokkos_device
+      pair build: half/bin/newton/kk/device
+      stencil: half/bin/3d
+      bin: kk/device
+WARNING: Fix MINIMIZE/kk not compatible with sending data in Kokkos communication (src/KOKKOS/comm_kokkos.cpp:799)
+WARNING: Fix with atom-based arrays not compatible with sending data in Kokkos communication, switching to classic exchange/border communication (src/KOKKOS/comm_kokkos.cpp:812)
+WARNING: Fix MINIMIZE/kk not compatible with Kokkos sorting on device (src/KOKKOS/atom_kokkos.cpp:213)
+WARNING: Fix with atom-based arrays not compatible with Kokkos sorting on device, switching to classic host sorting (src/KOKKOS/atom_kokkos.cpp:219)
+Per MPI rank memory allocation (min/avg/max) = 23.09 | 23.09 | 23.09 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+         0   533            0.89999998     24062.293      41544.11       3137.8242      10742.954      13880.778      0            
+        44   533            0.89999998     24062.293      27547.777      3137.8242      6676.9968      9814.821       89.170267    
+Loop time of 0.493475 on 1 procs for 44 steps with 1976 atoms
+
+99.9% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+Minimization stats:
+  Stopping criterion = energy tolerance
+  Energy initial, next-to-last, final = 
+      10742.9536892352   6677.13979850573   6676.99677080334
+  Force two-norm initial, final = 2029.8825 138.8119
+  Force max component initial, final = 146.07434 60.945179
+  Final line search alpha, max atom move = 1.6218961e-06 9.8846749e-05
+  Iterations, force evaluations = 44 110
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.29337    | 0.29337    | 0.29337    |   0.0 | 59.45
+Bond    | 0.04857    | 0.04857    | 0.04857    |   0.0 |  9.84
+Kspace  | 0.12813    | 0.12813    | 0.12813    |   0.0 | 25.97
+Neigh   | 0.0045796  | 0.0045796  | 0.0045796  |   0.0 |  0.93
+Comm    | 0.0032213  | 0.0032213  | 0.0032213  |   0.0 |  0.65
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 0.0156     |            |       |  3.16
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           9096 ave        9096 max        9096 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         493626 ave      493626 max      493626 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 493626
+Ave neighs/atom = 249.81073
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 1
+Dangerous builds = 0
+
+# Melt at 700 K (NVT)
+fix melt all nvt temp 700.0 700.0 50
+run 5000
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25273041
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.017970395
+  estimated relative force accuracy = 5.4117312e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 22.05 | 22.05 | 22.05 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+        44   533            0.89999998     24062.293      27547.777      3137.8242      6676.9968      9814.821       0            
+       125   376.49128      0.89999998     24062.293      21774.233      2216.4418      7982.8447      10199.286      328.17915    
+       250   559.33856      0.89999998     24062.293      16825.281      3292.882       7655.7974      10948.679      324.39031    
+       375   686.62613      0.89999998     24062.293      12826.559      4042.2366      7706.5444      11748.781      325.05433    
+       500   740.62735      0.89999998     24062.293      8846.7849      4360.1471      7784.5736      12144.721      324.19263    
+       625   720.23002      0.89999998     24062.293      9373.7003      4240.066       7611.8946      11851.961      338.43524    
+       750   669.82009      0.89999998     24062.293      7643.7948      3943.2978      7568.0051      11511.303      342.24122    
+       875   696.32051      0.89999998     24062.293      8301.5165      4099.3083      7523.7013      11623.01       340.76928    
+      1000   704.70169      0.89999998     24062.293      9743.6229      4148.6492      7689.308       11837.957      333.30858    
+      1125   704.66842      0.89999998     24062.293      6021.4316      4148.4534      7831.4532      11979.907      345.25661    
+      1250   723.45256      0.89999998     24062.293      5441.0905      4259.0374      7661.0758      11920.113      350.21591    
+      1375   696.70575      0.89999998     24062.293      1213.7158      4101.5763      7500.1338      11601.71       352.47729    
+      1500   664.39638      0.89999998     24062.293      6886.9771      3911.3678      7608.9819      11520.35       342.47595    
+      1625   711.37003      0.89999998     24062.293      4658.5948      4187.9064      7639.1005      11827.007      341.07673    
+      1750   721.01044      0.89999998     24062.293      7675.8567      4244.6604      7716.3938      11961.054      330.5686     
+      1875   682.75407      0.89999998     24062.293      3103.6108      4019.4414      7884.6785      11904.12       334.60041    
+      2000   697.36587      0.89999998     24062.293      1328.1124      4105.4625      7796.2518      11901.714      329.49564    
+      2125   698.6744       0.89999998     24062.293      7748.7049      4113.166       7830.3852      11943.551      348.0066     
+      2250   711.51586      0.89999998     24062.293      1568.6362      4188.7649      7807.8625      11996.627      356.62193    
+      2375   705.41926      0.89999998     24062.293      5382.2333      4152.8736      7788.5768      11941.45       350.41481    
+      2500   688.9057       0.89999998     24062.293      3805.7335      4055.6566      7901.8634      11957.52       341.73523    
+      2625   706.37116      0.89999998     24062.293      2495.713       4158.4776      7929.6336      12088.111      342.96146    
+      2750   706.79124      0.89999998     24062.293      5030.9564      4160.9506      8131.0239      12291.974      335.26877    
+      2875   714.20427      0.89999998     24062.293      4537.0394      4204.5919      8089.512       12294.104      337.80078    
+      3000   696.52323      0.89999998     24062.293      2677.661       4100.5018      7932.9571      12033.459      334.86369    
+      3125   699.40853      0.89999998     24062.293      2812.5759      4117.4878      7778.1861      11895.674      342.03259    
+      3250   696.87964      0.89999998     24062.293      5354.7311      4102.6         7885.6647      11988.265      334.90904    
+      3375   717.07742      0.89999998     24062.293      3809.3349      4221.5064      7911.6417      12133.148      340.54513    
+      3500   690.17087      0.89999998     24062.293      2572.2975      4063.1048      8062.656       12125.761      336.40155    
+      3625   688.25044      0.89999998     24062.293      1254.0577      4051.7991      7918.3386      11970.138      338.26267    
+      3750   681.78418      0.89999998     24062.293      1279.4059      4013.7315      7889.1467      11902.878      335.47827    
+      3875   705.73544      0.89999998     24062.293      3494.2911      4154.735       7963.3787      12118.114      340.25346    
+      4000   702.53874      0.89999998     24062.293      1357.2107      4135.9157      8024.7767      12160.692      335.9865     
+      4125   684.86228      0.89999998     24062.293     -597.72804      4031.8526      8076.4808      12108.333      348.60462    
+      4250   697.88582      0.89999998     24062.293      4251.2259      4108.5235      7873.726       11982.25       350.29959    
+      4375   703.33743      0.89999998     24062.293     -1776.7882      4140.6176      7841.7326      11982.35       355.29524    
+      4500   712.93128      0.89999998     24062.293     -794.31216      4197.0976      8000.7508      12197.848      344.559      
+      4625   704.49806      0.89999998     24062.293      1843.9298      4147.4504      8033.483       12180.933      349.91379    
+      4750   691.44559      0.89999998     24062.293      5408.2142      4070.6092      7934.8794      12005.489      346.21093    
+      4875   690.53492      0.89999998     24062.293      3071.148       4065.248       7922.2689      11987.517      352.45367    
+      5000   706.86296      0.89999998     24062.293     -1533.9955      4161.3728      7898.7456      12060.118      348.78072    
+      5044   713.62256      0.89999998     24062.293     -218.62626      4201.1673      7881.8816      12083.049      340.50677    
+Loop time of 14.6772 on 1 procs for 5000 steps with 1976 atoms
+
+Performance: 14.717 ns/day, 1.631 hours/ns, 340.664 timesteps/s, 673.153 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.16418    | 0.16418    | 0.16418    |   0.0 |  1.12
+Bond    | 7.5423     | 7.5423     | 7.5423     |   0.0 | 51.39
+Kspace  | 5.6118     | 5.6118     | 5.6118     |   0.0 | 38.23
+Neigh   | 0.44262    | 0.44262    | 0.44262    |   0.0 |  3.02
+Comm    | 0.44742    | 0.44742    | 0.44742    |   0.0 |  3.05
+Output  | 0.0035721  | 0.0035721  | 0.0035721  |   0.0 |  0.02
+Modify  | 0.43168    | 0.43168    | 0.43168    |   0.0 |  2.94
+Other   |            | 0.03369    |            |       |  0.23
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           8928 ave        8928 max        8928 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         454485 ave      454485 max      454485 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 454485
+Ave neighs/atom = 230.00253
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 100
+Dangerous builds = 100
+unfix melt
+
+# Pre-equilibration at 533.0 K (NPT)
+fix pre all npt temp 533.0 533.0 50 aniso 1.000 1.000 500
+run 5000
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25273041
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.017970395
+  estimated relative force accuracy = 5.4117312e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.9 | 21.9 | 21.9 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+      5044   713.62256      0.89999998     24062.293     -218.62626      4201.1673      7881.8816      12083.049      0            
+      5125   682.46981      0.89736959     24132.825      785.01173      4017.7679      7694.3307      11712.099      278.94292    
+      5250   609.55925      0.88760427     24398.332      1176.6975      3588.5362      7427.6015      11016.138      275.07291    
+      5375   554.76266      0.87995547     24610.408     -48.769632      3265.9432      7179.5213      10445.464      277.78854    
+      5500   531.53561      0.87140324     24851.943     -564.85468      3129.2032      6939.5728      10068.776      276.41       
+      5625   517.13109      0.86358614     25076.9       -421.08775      3044.4024      6961.812       10006.214      278.98304    
+      5750   538.96334      0.86255712     25106.817     -541.55557      3172.931       7014.4911      10187.422      277.93723    
+      5875   546.3231       0.86737857     24967.257      647.58321      3216.2587      7104.076       10320.335      278.73341    
+      6000   525.33386      0.86954225     24905.131     -2335.2241      3092.6929      7190.0637      10282.757      275.59583    
+      6125   535.20973      0.87163404     24845.362      3249.4164      3150.8331      7046.7618      10197.595      278.24563    
+      6250   518.31966      0.87165093     24844.881     -2250.5952      3051.3996      7031.0019      10082.401      278.51434    
+      6375   519.50701      0.87336595     24796.093     -601.13583      3058.3896      6953.4769      10011.867      278.69838    
+      6500   535.39673      0.87616228     24716.955      861.75947      3151.934       6867.3455      10019.279      280.22519    
+      6625   518.22843      0.87789573     24668.15       55.608421      3050.8625      7079.0314      10129.894      282.71341    
+      6750   544.79001      0.87680022     24698.972     -583.71991      3207.2332      7018.5247      10225.758      277.64344    
+      6875   526.229        0.87772042     24673.077     -1009.8874      3097.9627      7037.6217      10135.584      280.20525    
+      7000   520.61645      0.88046945     24596.042      3149.1954      3064.921       6959.2485      10024.17       275.52869    
+      7125   535.48778      0.87851251     24650.831     -452.53067      3152.47        6884.0446      10036.515      277.20702    
+      7250   535.70822      0.88171857     24561.197     -49.640898      3153.7678      6998.4049      10152.173      272.84392    
+      7375   538.89788      0.88733437     24405.753     -151.53427      3172.5456      6954.9866      10127.532      274.14776    
+      7500   526.85897      0.88853499     24372.775      1384.7798      3101.6714      6863.9769      9965.6483      270.44593    
+      7625   523.97883      0.892259       24271.051      1208.0241      3084.7157      6935.1625      10019.878      275.98325    
+      7750   537.0193       0.89193952     24279.744     -83.413376      3161.4863      6934.9771      10096.463      274.82274    
+      7875   536.81057      0.88932747     24351.057      501.97071      3160.2575      6944.2368      10104.494      274.27257    
+      8000   522.95311      0.88928308     24352.272     -925.92692      3078.6771      6850.659       9929.3362      273.29686    
+      8125   530.90185      0.89437681     24213.579      598.57754      3125.4722      6805.255       9930.7272      276.98457    
+      8250   529.60877      0.90613436     23899.396     -232.61917      3117.8597      6907.8357      10025.695      275.37599    
+      8375   544.60751      0.91519785     23662.713      810.71676      3206.1588      6851.4696      10057.628      275.39532    
+      8500   533.4143       0.92254946     23474.149      3254.7697      3140.2632      6833.1633      9973.4265      271.50064    
+      8625   518.34407      0.92811388     23333.412      1364.1229      3051.5433      6807.1731      9858.7164      273.51425    
+      8750   532.96245      0.93200239     23236.06      -2242.5955      3137.6032      6878.6004      10016.204      268.94046    
+      8875   540.93271      0.93079079     23266.306      320.57582      3184.5249      6851.9062      10036.431      272.06401    
+      9000   537.66197      0.92750843     23348.644     -2123.7901      3165.2697      6873.0658      10038.335      269.28767    
+      9125   539.98396      0.92618406     23382.03       2149.4065      3178.9395      6915.9539      10094.893      270.93375    
+      9250   539.72357      0.92613329     23383.312     -168.09078      3177.4066      6893.5759      10070.982      267.60831    
+      9375   535.56088      0.92538845     23402.133     -1536.4695      3152.9004      6801.607       9954.5074      270.756      
+      9500   517.4862       0.92374402     23443.793     -975.31753      3046.4929      6847.3707      9893.8636      270.14469    
+      9625   538.77287      0.92374905     23443.665     -1151.898       3171.8097      6868.0473      10039.857      272.48768    
+      9750   539.94576      0.92108262     23511.532      2414.6448      3178.7146      6902.8677      10081.582      269.20886    
+      9875   525.524        0.91899863     23564.849     -2142.0794      3093.8122      6965.8738      10059.686      273.48655    
+     10000   539.8034       0.92029971     23531.534     -2285.3555      3177.8765      6865.4833      10043.36       271.00135    
+     10044   523.84617      0.92282651     23467.102      736.68111      3083.9347      6916.2071      10000.142      266.62239    
+Loop time of 18.204 on 1 procs for 5000 steps with 1976 atoms
+
+Performance: 11.866 ns/day, 2.023 hours/ns, 274.665 timesteps/s, 542.739 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 7.9915     | 7.9915     | 7.9915     |   0.0 | 43.90
+Bond    | 2.2137     | 2.2137     | 2.2137     |   0.0 | 12.16
+Kspace  | 5.7036     | 5.7036     | 5.7036     |   0.0 | 31.33
+Neigh   | 0.4307     | 0.4307     | 0.4307     |   0.0 |  2.37
+Comm    | 0.45234    | 0.45234    | 0.45234    |   0.0 |  2.48
+Output  | 0.0034353  | 0.0034353  | 0.0034353  |   0.0 |  0.02
+Modify  | 1.369      | 1.369      | 1.369      |   0.0 |  7.52
+Other   |            | 0.03973    |            |       |  0.22
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           8764 ave        8764 max        8764 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         464050 ave      464050 max      464050 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 464050
+Ave neighs/atom = 234.84312
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 100
+Dangerous builds = 100
+unfix pre
+
+# Stage: cool_000_533K
+fix cool_000_533K all npt temp 533 533 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25345788
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.017601999
+  estimated relative force accuracy = 5.3007897e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.93 | 21.93 | 21.93 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     10044   523.84617      0.92282651     23467.102      736.94413      3083.9347      6916.2233      10000.158      0            
+     10125   531.62551      0.92233642     23479.571     -782.80908      3129.7325      6890.1343      10019.867      279.75409    
+     10250   545.09709      0.9216467      23497.142     -1540.0184      3209.041       6939.6287      10148.67       273.22152    
+     10375   548.15004      0.92232584     23479.841      2017.2641      3227.014       7003.8995      10230.913      275.16326    
+     10500   530.75754      0.92279366     23467.937      887.39562      3124.6226      6906.8031      10031.426      269.93216    
+     10625   523.3917       0.9228581      23466.298     -2124.8114      3081.2592      6883.6582      9964.9174      271.15975    
+     10750   539.66806      0.92482626     23416.359      2972.3842      3177.0797      6859.151       10036.231      267.61901    
+     10875   543.15175      0.92413279     23433.931      1681.7872      3197.5886      6900.7949      10098.383      269.71867    
+     11000   534.68067      0.91554961     23653.621     -506.8088       3147.7185      6851.5202      9999.2387      268.22859    
+     11125   525.58915      0.91261361     23729.718     -1688.6563      3094.1958      6833.7257      9927.9215      273.53922    
+     11250   533.21943      0.92009191     23536.848      2735.8288      3139.116       6895.8591      10034.975      273.51708    
+     11294   536.56188      0.92054147     23525.354     -1127.0703      3158.7933      6896.0768      10054.87       272.78219    
+Loop time of 4.59725 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.746 ns/day, 2.043 hours/ns, 271.902 timesteps/s, 537.278 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.0495     | 2.0495     | 2.0495     |   0.0 | 44.58
+Bond    | 0.5529     | 0.5529     | 0.5529     |   0.0 | 12.03
+Kspace  | 1.4237     | 1.4237     | 1.4237     |   0.0 | 30.97
+Neigh   | 0.10857    | 0.10857    | 0.10857    |   0.0 |  2.36
+Comm    | 0.11045    | 0.11045    | 0.11045    |   0.0 |  2.40
+Output  | 0.00084496 | 0.00084496 | 0.00084496 |   0.0 |  0.02
+Modify  | 0.34142    | 0.34142    | 0.34142    |   0.0 |  7.43
+Other   |            | 0.009846   |            |       |  0.21
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           8772 ave        8772 max        8772 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         462745 ave      462745 max      462745 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 462745
+Ave neighs/atom = 234.18269
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 25
+Dangerous builds = 25
+unfix cool_000_533K
+
+# Stage: cool_001_513K
+fix cool_001_513K all npt temp 513 513 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25344434
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.017591086
+  estimated relative force accuracy = 5.2975034e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.88 | 21.88 | 21.88 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     11294   536.56188      0.92054147     23525.354     -1127.0693      3158.7933      6896.077       10054.87       0            
+     11375   529.0338       0.92061973     23523.354      871.20848      3114.4748      6853.0747      9967.5495      277.34359    
+     11500   512.50303      0.92491788     23414.039     -1238.3506      3017.1565      6829.2656      9846.4221      271.11325    
+     11625   508.42158      0.93630161     23129.367     -493.31898      2993.1286      6782.92        9776.0486      274.05529    
+     11750   503.4327       0.94788638     22846.687      1003.2448      2963.7586      6743.9022      9707.6608      270.11018    
+     11875   504.73575      0.95514277     22673.117      2625.1004      2971.4298      6714.2027      9685.6325      271.01109    
+     12000   505.52414      0.95715902     22625.356      1864.6934      2976.0711      6860.7347      9836.8058      266.33643    
+     12125   521.0109       0.95277409     22729.484      1274.9854      3067.2432      6832.8361      9900.0793      270.04697    
+     12250   511.83189      0.94522838     22910.933     -1315.0004      3013.2054      6796.0284      9809.2338      269.50604    
+     12375   510.97561      0.93885418     23066.483     -1504.864       3008.1645      6697.4086      9705.5731      271.31541    
+     12500   516.7057       0.93662015     23121.501      1744.1945      3041.898       6801.3383      9843.2364      269.61286    
+     12544   519.28313      0.93628571     23129.76       1710.2332      3057.0716      6852.1997      9909.2713      269.67629    
+Loop time of 4.61681 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.696 ns/day, 2.052 hours/ns, 270.750 timesteps/s, 535.002 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.0563     | 2.0563     | 2.0563     |   0.0 | 44.54
+Bond    | 0.55389    | 0.55389    | 0.55389    |   0.0 | 12.00
+Kspace  | 1.4317     | 1.4317     | 1.4317     |   0.0 | 31.01
+Neigh   | 0.11202    | 0.11202    | 0.11202    |   0.0 |  2.43
+Comm    | 0.11064    | 0.11064    | 0.11064    |   0.0 |  2.40
+Output  | 0.00083464 | 0.00083464 | 0.00083464 |   0.0 |  0.02
+Modify  | 0.34158    | 0.34158    | 0.34158    |   0.0 |  7.40
+Other   |            | 0.009891   |            |       |  0.21
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           8845 ave        8845 max        8845 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         470315 ave      470315 max      470315 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 470315
+Ave neighs/atom = 238.01366
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 25
+Dangerous builds = 25
+unfix cool_001_513K
+
+# Stage: cool_002_493K
+fix cool_002_493K all npt temp 493 493 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25397458
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.017315225
+  estimated relative force accuracy = 5.2144285e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.89 | 21.89 | 21.89 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     12544   519.28313      0.93628571     23129.76       1710.2574      3057.0716      6852.1973      9909.2689      0            
+     12625   517.40617      0.93710756     23109.475     -1278.6897      3046.0218      6765.5014      9811.5232      274.87941    
+     12750   497.89788      0.94057238     23024.346      362.8188       2931.1745      6722.0469      9653.2215      269.76738    
+     12875   493.89874      0.94567422     22900.131      387.38582      2907.6312      6632.6619      9540.2931      272.91986    
+     13000   470.7962       0.95351003     22711.941      2539.0018      2771.6242      6692.6008      9464.225       268.68113    
+     13125   478.49563      0.95595935     22653.749      437.01467      2816.9515      6658.0153      9474.9669      269.27952    
+     13250   502.01627      0.95877753     22587.162     -356.27752      2955.4199      6669.6546      9625.0746      265.64402    
+     13375   495.10097      0.96298351     22488.509      2431.8135      2914.7088      6689.8134      9604.5222      271.50284    
+     13500   495.49989      0.96341512     22478.435      1860.8064      2917.0573      6612.0382      9529.0956      267.00589    
+     13625   490.12469      0.96200596     22511.361      571.34807      2885.413       6623.7787      9509.1917      270.1623     
+     13750   492.55669      0.96349638     22476.539     -1799.618       2899.7304      6637.3974      9537.1278      266.10164    
+     13794   493.01365      0.96380045     22469.447      340.07523      2902.4206      6657.9513      9560.3719      266.20751    
+Loop time of 4.64237 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.632 ns/day, 2.063 hours/ns, 269.259 timesteps/s, 532.055 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.0709     | 2.0709     | 2.0709     |   0.0 | 44.61
+Bond    | 0.55694    | 0.55694    | 0.55694    |   0.0 | 12.00
+Kspace  | 1.4327     | 1.4327     | 1.4327     |   0.0 | 30.86
+Neigh   | 0.116      | 0.116      | 0.116      |   0.0 |  2.50
+Comm    | 0.11305    | 0.11305    | 0.11305    |   0.0 |  2.44
+Output  | 0.00090869 | 0.00090869 | 0.00090869 |   0.0 |  0.02
+Modify  | 0.34153    | 0.34153    | 0.34153    |   0.0 |  7.36
+Other   |            | 0.01036    |            |       |  0.22
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           8966 ave        8966 max        8966 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         483172 ave      483172 max      483172 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 483172
+Ave neighs/atom = 244.52024
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 25
+Dangerous builds = 25
+unfix cool_002_493K
+
+# Stage: cool_003_473K
+fix cool_003_473K all npt temp 473 473 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25478582
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.016925374
+  estimated relative force accuracy = 5.0970261e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.9 | 21.9 | 21.9 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     13794   493.01365      0.96380045     22469.447      340.03121      2902.4206      6657.9405      9560.3611      0            
+     13875   485.57045      0.9632915      22481.319      1399.8446      2858.6017      6609.5386      9468.1404      273.98635    
+     14000   472.38026      0.96261195     22497.19       284.81573      2780.9497      6564.8681      9345.8178      270.06943    
+     14125   460.9223       0.96331148     22480.853     -4913.232       2713.4956      6552.5207      9266.0162      271.70445    
+     14250   488.51125      0.9762847      22182.119      2856.0839      2875.9145      6375.7948      9251.7093      266.35224    
+     14375   455.6215       0.98335671     22022.592      1689.5355      2682.2892      6475.5589      9157.8481      272.29239    
+     14500   458.77883      0.98594681     21964.738     -1546.8122      2700.8768      6441.9437      9142.8205      267.41387    
+     14625   470.55916      0.98954147     21884.948      3249.0396      2770.2287      6524.7631      9294.9919      270.29782    
+     14750   478.00621      0.99032384     21867.659     -2780.1816      2814.0703      6492.7097      9306.78        266.13328    
+     14875   460.35735      0.99373951     21792.495     -2427.3989      2710.1697      6556.3969      9266.5665      268.0172     
+     15000   462.4519       0.99086257     21855.769      4393.6192      2722.5005      6496.7033      9219.2038      264.79031    
+     15044   480.86333      0.98867156     21904.204      858.66971      2830.8904      6371.7953      9202.6857      260.48865    
+Loop time of 4.6539 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.603 ns/day, 2.068 hours/ns, 268.592 timesteps/s, 530.738 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.1002     | 2.1002     | 2.1002     |   0.0 | 45.13
+Bond    | 0.55388    | 0.55388    | 0.55388    |   0.0 | 11.90
+Kspace  | 1.4217     | 1.4217     | 1.4217     |   0.0 | 30.55
+Neigh   | 0.11261    | 0.11261    | 0.11261    |   0.0 |  2.42
+Comm    | 0.11356    | 0.11356    | 0.11356    |   0.0 |  2.44
+Output  | 0.0008858  | 0.0008858  | 0.0008858  |   0.0 |  0.02
+Modify  | 0.34114    | 0.34114    | 0.34114    |   0.0 |  7.33
+Other   |            | 0.009933   |            |       |  0.21
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           9148 ave        9148 max        9148 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         495671 ave      495671 max      495671 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 495671
+Ave neighs/atom = 250.84565
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 25
+Dangerous builds = 25
+unfix cool_003_473K
+
+# Stage: cool_004_453K
+fix cool_004_453K all npt temp 453 453 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25570621
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.016430511
+  estimated relative force accuracy = 4.9479996e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.91 | 21.91 | 21.91 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     15044   480.86333      0.98867156     21904.204      858.75068      2830.8904      6371.7944      9202.6848      0            
+     15125   473.69916      0.98811946     21916.443     -1877.1323      2788.7142      6339.8305      9128.5447      268.65805    
+     15250   455.87351      0.98971672     21881.073      2070.683       2683.7728      6340.6942      9024.467       262.81507    
+     15375   438.35161      0.98667172     21948.601     -677.97543      2580.6197      6387.6843      8968.304       266.71172    
+     15500   453.14359      0.98180748     22057.342      315.67039      2667.7016      6321.6358      8989.3374      265.21268    
+     15625   467.78086      0.97769271     22150.174      157.26692      2753.8727      6356.2108      9110.0834      267.69737    
+     15750   459.18839      0.96816347     22368.189     -192.55067      2703.2879      6409.7173      9113.0053      265.87572    
+     15875   453.63292      0.96644182     22408.037     -2636.6004      2670.5823      6305.2406      8975.8229      268.55356    
+     16000   456.25187      0.96618362     22414.025     -747.74604      2686.0003      6307.2362      8993.2365      264.02235    
+     16125   461.42659      0.96941138     22339.395     -95.768119      2716.4644      6363.1524      9079.6168      268.98613    
+     16250   449.88995      0.97836177     22135.026     -187.78221      2648.5471      6424.499       9073.0461      270.99144    
+     16294   455.01071      0.98111639     22072.879     -1299.3556      2678.6935      6353.7486      9032.4421      268.0129     
+Loop time of 4.68329 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.530 ns/day, 2.081 hours/ns, 266.906 timesteps/s, 527.407 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.1316     | 2.1316     | 2.1316     |   0.0 | 45.52
+Bond    | 0.5535     | 0.5535     | 0.5535     |   0.0 | 11.82
+Kspace  | 1.4232     | 1.4232     | 1.4232     |   0.0 | 30.39
+Neigh   | 0.1123     | 0.1123     | 0.1123     |   0.0 |  2.40
+Comm    | 0.11089    | 0.11089    | 0.11089    |   0.0 |  2.37
+Output  | 0.0008934  | 0.0008934  | 0.0008934  |   0.0 |  0.02
+Modify  | 0.34099    | 0.34099    | 0.34099    |   0.0 |  7.28
+Other   |            | 0.009892   |            |       |  0.21
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           9000 ave        9000 max        9000 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         492493 ave      492493 max      492493 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 492493
+Ave neighs/atom = 249.23735
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 25
+Dangerous builds = 25
+unfix cool_004_453K
+
+# Stage: cool_005_433K
+fix cool_005_433K all npt temp 433 433 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25531074
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.016668949
+  estimated relative force accuracy = 5.0198045e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.9 | 21.9 | 21.9 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     16294   455.01071      0.98111639     22072.879     -1299.3412      2678.6935      6353.7536      9032.4471      0            
+     16375   450.40052      0.98427136     22002.127     -749.47576      2651.5528      6295.4278      8946.9807      271.19172    
+     16500   437.82345      0.9912799      21846.568      1049.7768      2577.5104      6256.6978      8834.2081      266.40421    
+     16625   426.98905      0.99526887     21759.008     -1214.1628      2513.7272      6265.2268      8778.954       268.27077    
+     16750   437.8888       1.002693       21597.901      2148.7554      2577.8951      6239.2018      8817.0969      265.91182    
+     16875   438.57229      1.0065349      21515.463      220.61393      2581.9188      6291.779       8873.6979      266.58885    
+     17000   443.61958      1.0021743      21609.078      50.729911      2611.6328      6248.5451      8860.1778      264.6604     
+     17125   423.1953       0.99942032     21668.625     -418.65502      2491.393       6237.9955      8729.3885      266.45926    
+     17250   445.27082      0.99563793     21750.943      1742.5125      2621.3538      6111.0708      8732.4245      266.15517    
+     17375   437.64374      0.99069086     21859.557     -247.76682      2576.4524      6195.7081      8772.1605      270.04466    
+     17500   443.87313      0.98611997     21960.881      734.70458      2613.1254      6277.5343      8890.6598      265.94595    
+     17544   442.93563      0.98332337     22023.339     -2185.6029      2607.6063      6288.2623      8895.8686      263.1302     
+Loop time of 4.68403 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.529 ns/day, 2.082 hours/ns, 266.864 timesteps/s, 527.324 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.1367     | 2.1367     | 2.1367     |   0.0 | 45.62
+Bond    | 0.55333    | 0.55333    | 0.55333    |   0.0 | 11.81
+Kspace  | 1.4208     | 1.4208     | 1.4208     |   0.0 | 30.33
+Neigh   | 0.11052    | 0.11052    | 0.11052    |   0.0 |  2.36
+Comm    | 0.11105    | 0.11105    | 0.11105    |   0.0 |  2.37
+Output  | 0.00085485 | 0.00085485 | 0.00085485 |   0.0 |  0.02
+Modify  | 0.34094    | 0.34094    | 0.34094    |   0.0 |  7.28
+Other   |            | 0.009778   |            |       |  0.21
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           9104 ave        9104 max        9104 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         493726 ave      493726 max      493726 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 493726
+Ave neighs/atom = 249.86134
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 25
+Dangerous builds = 25
+unfix cool_005_433K
+
+# Stage: cool_006_413K
+fix cool_006_413K all npt temp 413 413 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25532842
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.0166741
+  estimated relative force accuracy = 5.0213556e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.9 | 21.9 | 21.9 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     17544   442.93563      0.98332337     22023.339     -2185.6016      2607.6063      6288.2623      8895.8686      0            
+     17625   435.27102      0.98502408     21985.314      117.08862      2562.484       6236.5244      8799.0084      271.40779    
+     17750   417.47088      0.98630459     21956.771      1985.0152      2457.6928      6185.2704      8642.9632      266.00751    
+     17875   413.32396      0.98559947     21972.479     -469.5938       2433.2794      6084.5486      8517.828       269.55322    
+     18000   399.00853      0.99048196     21864.168     -1810.0775      2349.0031      6123.2827      8472.2858      267.23637    
+     18125   426.67632      0.99593787     21744.392      1725.7351      2511.8861      6030.4114      8542.2975      267.38479    
+     18250   410.8235       0.99825083     21694.01      -1748.0829      2418.559       6179.5522      8598.1112      265.26636    
+     18375   412.033        0.99860131     21686.396      463.99135      2425.6794      6151.5455      8577.2249      268.08234    
+     18500   416.62528      1.0012193      21629.69       36.170131      2452.7146      5996.1749      8448.8895      264.66372    
+     18625   408.04567      0.99978662     21660.686     -1841.2792      2402.2056      6019.1223      8421.3279      265.70572    
+     18750   424.04976      1.0020295      21612.202     -610.0871       2496.4233      6033.0177      8529.441       262.75399    
+     18794   429.91597      1.0032177      21586.605     -1309.4304      2530.9582      6032.0847      8563.0429      259.85625    
+Loop time of 4.69267 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.507 ns/day, 2.086 hours/ns, 266.373 timesteps/s, 526.353 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.1382     | 2.1382     | 2.1382     |   0.0 | 45.56
+Bond    | 0.55353    | 0.55353    | 0.55353    |   0.0 | 11.80
+Kspace  | 1.4283     | 1.4283     | 1.4283     |   0.0 | 30.44
+Neigh   | 0.11183    | 0.11183    | 0.11183    |   0.0 |  2.38
+Comm    | 0.10891    | 0.10891    | 0.10891    |   0.0 |  2.32
+Output  | 0.00089944 | 0.00089944 | 0.00089944 |   0.0 |  0.02
+Modify  | 0.34107    | 0.34107    | 0.34107    |   0.0 |  7.27
+Other   |            | 0.01001    |            |       |  0.21
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           9136 ave        9136 max        9136 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         503424 ave      503424 max      503424 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 503424
+Ave neighs/atom = 254.76923
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 25
+Dangerous builds = 25
+unfix cool_006_413K
+
+# Stage: cool_007_393K
+fix cool_007_393K all npt temp 393 393 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.2561447
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.016218979
+  estimated relative force accuracy = 4.8842972e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.91 | 21.91 | 21.91 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     18794   429.91597      1.0032177      21586.605     -1309.3456      2530.9582      6032.0885      8563.0467      0            
+     18875   405.5354       1.0034562      21581.473      705.814        2387.4274      6083.8888      8471.3162      266.78784    
+     19000   400.57094      0.99929772     21671.283      109.11014      2358.2011      5996.736       8354.9371      263.93292    
+     19125   392.98414      0.99739736     21712.574     -775.92768      2313.5368      5945.6117      8259.1485      266.51748    
+     19250   385.36526      0.99877398     21682.647      2149.9877      2268.6838      5928.4848      8197.1686      263.99208    
+     19375   401.72631      0.99880183     21682.043     -2688.6529      2365.0029      5886.1718      8251.1747      266.41871    
+     19500   411.72309      1.0044975      21559.102     -892.22495      2423.8549      5918.2536      8342.1086      263.40295    
+     19625   391.41876      1.0057152      21532.998      2184.891       2304.3213      6001.6079      8305.9293      266.61956    
+     19750   383.30307      1.0032234      21586.481     -1655.5793      2256.5434      5909.4273      8165.9707      263.2499     
+     19875   386.12239      1.0004207      21646.956     -454.04076      2273.1411      5938.3167      8211.4578      268.38906    
+     20000   402.38784      1.0009646      21635.194     -1198.8967      2368.8974      5921.045       8289.9423      266.89658    
+     20044   383.79854      1.0007674      21639.457     -695.69266      2259.4603      6031.6424      8291.1027      261.45304    
+Loop time of 4.70956 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.466 ns/day, 2.093 hours/ns, 265.418 timesteps/s, 524.465 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.1576     | 2.1576     | 2.1576     |   0.0 | 45.81
+Bond    | 0.5538     | 0.5538     | 0.5538     |   0.0 | 11.76
+Kspace  | 1.4234     | 1.4234     | 1.4234     |   0.0 | 30.22
+Neigh   | 0.10965    | 0.10965    | 0.10965    |   0.0 |  2.33
+Comm    | 0.11319    | 0.11319    | 0.11319    |   0.0 |  2.40
+Output  | 0.00086457 | 0.00086457 | 0.00086457 |   0.0 |  0.02
+Modify  | 0.34112    | 0.34112    | 0.34112    |   0.0 |  7.24
+Other   |            | 0.009879   |            |       |  0.21
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           9224 ave        9224 max        9224 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         502221 ave      502221 max      502221 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 502221
+Ave neighs/atom = 254.16043
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 25
+Dangerous builds = 25
+unfix cool_007_393K
+
+# Stage: cool_008_373K
+fix cool_008_373K all npt temp 373 373 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25606242
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.016260903
+  estimated relative force accuracy = 4.8969225e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.91 | 21.91 | 21.91 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     20044   383.79854      1.0007674      21639.457     -695.70443      2259.4603      6031.6419      8291.1022      0            
+     20125   396.86509      1.0029924      21591.453     -589.06191      2336.3844      5862.9671      8199.3515      270.18049    
+     20250   380.11618      1.0127296      21383.856      2500.6366      2237.7819      5829.5767      8067.3586      265.4972     
+     20375   375.47507      1.0182372      21268.191     -333.71127      2210.4592      5757.878       7968.3372      267.1657     
+     20500   364.61855      1.0214274      21201.766     -81.856054      2146.5458      5800.3871      7946.933       262.90668    
+     20625   372.62487      1.0237665      21153.324      1568.4403      2193.6798      5843.7508      8037.4306      265.59555    
+     20750   374.134        1.0148272      21339.656     -1299.3434      2202.5642      5862.9239      8065.4881      261.27418    
+     20875   368.30072      1.0038996      21571.942     -483.81094      2168.2231      5869.7574      8037.9805      265.16491    
+     21000   367.21078      0.99411756     21784.208     -1903.1725      2161.8065      5792.5343      7954.3408      263.26815    
+     21125   373.90796      0.99197192     21831.327      2394.0636      2201.2335      5779.3167      7980.5502      265.74089    
+     21250   376.08355      0.99021442     21870.075     -3601.6494      2214.0414      5860.653       8074.6944      261.91856    
+     21294   376.69434      0.99061431     21861.247     -4305.8171      2217.6372      5866.8793      8084.5164      262.66625    
+Loop time of 4.72438 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.430 ns/day, 2.100 hours/ns, 264.585 timesteps/s, 522.819 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.1753     | 2.1753     | 2.1753     |   0.0 | 46.04
+Bond    | 0.55278    | 0.55278    | 0.55278    |   0.0 | 11.70
+Kspace  | 1.4259     | 1.4259     | 1.4259     |   0.0 | 30.18
+Neigh   | 0.10962    | 0.10962    | 0.10962    |   0.0 |  2.32
+Comm    | 0.11038    | 0.11038    | 0.11038    |   0.0 |  2.34
+Output  | 0.00075721 | 0.00075721 | 0.00075721 |   0.0 |  0.02
+Modify  | 0.33995    | 0.33995    | 0.33995    |   0.0 |  7.20
+Other   |            | 0.00961    |            |       |  0.20
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           9250 ave        9250 max        9250 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         497403 ave      497403 max      497403 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 497403
+Ave neighs/atom = 251.72217
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 25
+Dangerous builds = 25
+unfix cool_008_373K
+
+# Stage: cool_009_353K
+fix cool_009_353K all npt temp 353 353 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25563415
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.016501447
+  estimated relative force accuracy = 4.9693618e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.91 | 21.91 | 21.91 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     21294   376.69434      0.99061431     21861.247     -4305.8844      2217.6372      5866.878       8084.5152      0            
+     21375   375.47195      0.99491979     21766.643     -889.35555      2210.4409      5783.9124      7994.3532      268.96729    
+     21500   358.71239      1.0063706      21518.975      2927.2644      2111.7756      5750.6693      7862.445       264.41322    
+     21625   359.09882      1.0101079      21439.357     -2869.6456      2114.0506      5642.5354      7756.586       268.16096    
+     21750   355.04295      1.0203997      21223.119      422.41439      2090.1733      5615.2263      7705.3996      263.98297    
+     21875   347.38457      1.0271531      21083.579      1482.1274      2045.0877      5654.633       7699.7206      266.12867    
+     22000   353.35595      1.0282297      21061.503      261.45601      2080.2418      5699.8097      7780.0515      262.55528    
+     22125   356.61363      1.0222212      21185.301      1108.7612      2099.42        5725.0777      7824.4978      263.74004    
+     22250   349.92554      1.0153836      21327.963     -1664.4773      2060.0466      5708.0406      7768.0872      261.86864    
+     22375   337.28537      1.0156382      21322.615      155.45489      1985.6326      5650.3828      7636.0154      264.74506    
+     22500   350.39028      1.0165284      21303.944     -917.89295      2062.7825      5624.1471      7686.9296      260.24433    
+     22544   350.19576      1.0175641      21282.259     -1793.1338      2061.6374      5656.8809      7718.5184      260.19332    
+Loop time of 4.73226 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.411 ns/day, 2.103 hours/ns, 264.144 timesteps/s, 521.949 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.168      | 2.168      | 2.168      |   0.0 | 45.81
+Bond    | 0.5534     | 0.5534     | 0.5534     |   0.0 | 11.69
+Kspace  | 1.4356     | 1.4356     | 1.4356     |   0.0 | 30.34
+Neigh   | 0.11329    | 0.11329    | 0.11329    |   0.0 |  2.39
+Comm    | 0.11026    | 0.11026    | 0.11026    |   0.0 |  2.33
+Output  | 0.00090067 | 0.00090067 | 0.00090067 |   0.0 |  0.02
+Modify  | 0.34102    | 0.34102    | 0.34102    |   0.0 |  7.21
+Other   |            | 0.009892   |            |       |  0.21
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           9265 ave        9265 max        9265 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         510828 ave      510828 max      510828 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 510828
+Ave neighs/atom = 258.51619
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 25
+Dangerous builds = 25
+unfix cool_009_353K
+
+# Stage: cool_010_333K
+fix cool_010_333K all npt temp 333 333 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25638154
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.016156533
+  estimated relative force accuracy = 4.8654919e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.9 | 21.9 | 21.9 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     22544   350.19576      1.0175641      21282.259     -1793.1003      2061.6374      5656.8805      7718.518       0            
+     22625   350.86929      1.0203327      21224.513     -1115.7575      2065.6026      5594.2202      7659.8228      265.35214    
+     22750   335.22274      1.0281955      21062.205      922.92698      1973.4898      5580.8339      7554.3237      261.76839    
+     22875   329.92739      1.0326478      20971.394     -936.08887      1942.3155      5521.6368      7463.9522      264.51167    
+     23000   326.93923      1.0382067      20859.106      1803.0724      1924.7239      5501.3023      7426.0262      262.38736    
+     23125   326.74931      1.0420379      20782.415      29.173575      1923.6058      5587.6186      7511.2244      262.69757    
+     23250   335.06444      1.040097       20821.195     -1289.9052      1972.5578      5565.3457      7537.9035      257.99999    
+     23375   335.30564      1.0418577      20786.008     -306.98511      1973.9778      5522.5012      7496.479       261.5665     
+     23500   323.5869       1.0436707      20749.9        397.36233      1904.9884      5540.5804      7445.5688      259.31039    
+     23625   328.68667      1.0450746      20722.027     -2338.3621      1935.0112      5573.4629      7508.4742      261.84394    
+     23750   344.48358      1.0452312      20718.922      2703.8669      2028.0092      5549.0467      7577.0559      260.49891    
+     23794   340.70332      1.0449591      20724.316      1467.7353      2005.7545      5558.8511      7564.6055      266.18372    
+Loop time of 4.77457 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.310 ns/day, 2.122 hours/ns, 261.804 timesteps/s, 517.324 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.2351     | 2.2351     | 2.2351     |   0.0 | 46.81
+Bond    | 0.55303    | 0.55303    | 0.55303    |   0.0 | 11.58
+Kspace  | 1.4185     | 1.4185     | 1.4185     |   0.0 | 29.71
+Neigh   | 0.1073     | 0.1073     | 0.1073     |   0.0 |  2.25
+Comm    | 0.1091     | 0.1091     | 0.1091     |   0.0 |  2.28
+Output  | 0.00081983 | 0.00081983 | 0.00081983 |   0.0 |  0.02
+Modify  | 0.3409     | 0.3409     | 0.3409     |   0.0 |  7.14
+Other   |            | 0.00986    |            |       |  0.21
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           9395 ave        9395 max        9395 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         524413 ave      524413 max      524413 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 524413
+Ave neighs/atom = 265.39119
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 24
+Dangerous builds = 23
+unfix cool_010_333K
+
+# Stage: cool_011_313K
+fix cool_011_313K all npt temp 313 313 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25742222
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.015600974
+  estimated relative force accuracy = 4.6981871e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.92 | 21.92 | 21.92 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     23794   340.70332      1.0449591      20724.316      1467.8907      2005.7545      5558.8585      7564.613       0            
+     23875   323.78805      1.0449079      20725.332     -2638.8144      1906.1726      5577.9866      7484.1592      266.71675    
+     24000   325.86968      1.0464222      20695.341      1193.1997      1918.4273      5439.8536      7358.2809      261.94314    
+     24125   307.58421      1.0421285      20780.607      967.21367      1810.7789      5434.3501      7245.1291      263.20893    
+     24250   304.88329      1.0410796      20801.544     -1734.4865      1794.8784      5405.9123      7200.7907      261.93682    
+     24375   312.90047      1.0464556      20694.681      1501.9033      1842.0763      5416.5768      7258.6531      264.91087    
+     24500   323.02306      1.0522899      20579.94       1922.5913      1901.669       5411.0833      7312.7523      261.42486    
+     24625   311.98222      1.0487902      20648.615     -1765.566       1836.6705      5406.8116      7243.4821      263.1804     
+     24750   308.30984      1.0437625      20748.075      397.19022      1815.0508      5398.5841      7213.6349      260.38215    
+     24875   309.24746      1.0424556      20774.088      387.01503      1820.5707      5428.8111      7249.3817      265.56274    
+     25000   318.18565      1.037233       20878.688     -1664.8796      1873.1907      5406.0304      7279.2211      261.72841    
+     25044   313.04965      1.0372958      20877.423     -177.51452      1842.9546      5431.1727      7274.1272      270.2356     
+Loop time of 4.74918 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.370 ns/day, 2.111 hours/ns, 263.203 timesteps/s, 520.089 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.1995     | 2.1995     | 2.1995     |   0.0 | 46.31
+Bond    | 0.55334    | 0.55334    | 0.55334    |   0.0 | 11.65
+Kspace  | 1.4239     | 1.4239     | 1.4239     |   0.0 | 29.98
+Neigh   | 0.10939    | 0.10939    | 0.10939    |   0.0 |  2.30
+Comm    | 0.11163    | 0.11163    | 0.11163    |   0.0 |  2.35
+Output  | 0.0008254  | 0.0008254  | 0.0008254  |   0.0 |  0.02
+Modify  | 0.34081    | 0.34081    | 0.34081    |   0.0 |  7.18
+Other   |            | 0.009784   |            |       |  0.21
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           9378 ave        9378 max        9378 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         520353 ave      520353 max      520353 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 520353
+Ave neighs/atom = 263.33654
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 24
+Dangerous builds = 23
+unfix cool_011_313K
+
+# Stage: cool_012_293K
+fix cool_012_293K all npt temp 293 293 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25707018
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.015799937
+  estimated relative force accuracy = 4.7581042e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.91 | 21.91 | 21.91 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     25044   313.04965      1.0372958      20877.423     -177.60007      1842.9546      5431.1698      7274.1243      0            
+     25125   305.59571      1.0375213      20872.887      791.08964      1799.0724      5412.2551      7211.3276      267.44202    
+     25250   301.10039      1.0375865      20871.574     -855.43794      1772.608       5336.637       7109.2451      262.54318    
+     25375   291.98099      1.0401194      20820.748      324.46831      1718.9212      5298.2924      7017.2137      264.00639    
+     25500   282.83527      1.0506495      20612.073     -1217.5108      1665.0795      5305.2527      6970.3322      260.37958    
+     25625   294.4842       1.0637985      20357.298      922.08336      1733.6579      5255.8695      6989.5275      261.99532    
+     25750   289.73038      1.0686407      20265.056      1115.8503      1705.6717      5325.8153      7031.487       257.28797    
+     25875   300.10544      1.058412       20460.901     -29.217032      1766.7507      5325.9291      7092.6798      261.10814    
+     26000   296.61431      1.0462176      20699.388      288.20313      1746.1981      5341.0194      7087.2175      260.23668    
+     26125   287.02441      1.0434893      20753.509      857.21077      1689.7414      5296.372       6986.1134      262.753      
+     26250   293.91788      1.0420628      20781.918     -655.64417      1730.3239      5257.9133      6988.2372      261.16554    
+     26294   290.03256      1.0426485      20770.245     -504.48394      1707.4506      5300.4425      7007.8931      269.55958    
+Loop time of 4.77214 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.316 ns/day, 2.121 hours/ns, 261.937 timesteps/s, 517.588 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.2323     | 2.2323     | 2.2323     |   0.0 | 46.78
+Bond    | 0.55322    | 0.55322    | 0.55322    |   0.0 | 11.59
+Kspace  | 1.417      | 1.417      | 1.417      |   0.0 | 29.69
+Neigh   | 0.10851    | 0.10851    | 0.10851    |   0.0 |  2.27
+Comm    | 0.10985    | 0.10985    | 0.10985    |   0.0 |  2.30
+Output  | 0.0007707  | 0.0007707  | 0.0007707  |   0.0 |  0.02
+Modify  | 0.34088    | 0.34088    | 0.34088    |   0.0 |  7.14
+Other   |            | 0.009606   |            |       |  0.20
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           9450 ave        9450 max        9450 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         523232 ave      523232 max      523232 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 523232
+Ave neighs/atom = 264.79352
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 24
+Dangerous builds = 23
+unfix cool_012_293K
+
+# Stage: cool_013_273K
+fix cool_013_273K all npt temp 273 273 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25710435
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.015815563
+  estimated relative force accuracy = 4.7628097e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.91 | 21.91 | 21.91 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     26294   290.03256      1.0426485      20770.245     -504.48185      1707.4506      5300.4423      7007.893       0            
+     26375   285.08845      1.0463476      20696.816     -578.34138      1678.3442      5263.4503      6941.7944      265.67939    
+     26500   277.13105      1.0520433      20584.764      344.46059      1631.4981      5211.0098      6842.5079      260.34062    
+     26625   268.73921      1.0600197      20429.869     -366.75968      1582.0946      5185.3703      6767.4649      260.42045    
+     26750   267.82992      1.0641507      20350.56       1697.742       1576.7415      5138.2868      6715.0283      259.34826    
+     26875   267.28623      1.0666028      20303.776     -256.16053      1573.5407      5138.529       6712.0697      256.62378    
+     27000   279.74298      1.0751497      20142.371      1046.2897      1646.8748      5139.9473      6786.8221      258.14335    
+     27125   272.54986      1.0777266      20094.209      349.55366      1604.5283      5180.5573      6785.0856      255.41347    
+     27250   271.59457      1.0739588      20164.706      26.971852      1598.9044      5152.9545      6751.8588      259.99912    
+     27375   281.29025      1.0670698      20294.889      1497.7464      1655.9838      5097.4012      6753.385       259.82454    
+     27500   271.34524      1.0633973      20364.978     -749.06776      1597.4365      5157.9085      6755.3451      263.80141    
+     27544   274.01541      1.0634165      20364.611     -516.54233      1613.1561      5151.7906      6764.9467      260.82226    
+Loop time of 4.81215 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.222 ns/day, 2.139 hours/ns, 259.759 timesteps/s, 513.284 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.2604     | 2.2604     | 2.2604     |   0.0 | 46.97
+Bond    | 0.5529     | 0.5529     | 0.5529     |   0.0 | 11.49
+Kspace  | 1.4263     | 1.4263     | 1.4263     |   0.0 | 29.64
+Neigh   | 0.11044    | 0.11044    | 0.11044    |   0.0 |  2.29
+Comm    | 0.10999    | 0.10999    | 0.10999    |   0.0 |  2.29
+Output  | 0.0008295  | 0.0008295  | 0.0008295  |   0.0 |  0.02
+Modify  | 0.34118    | 0.34118    | 0.34118    |   0.0 |  7.09
+Other   |            | 0.01013    |            |       |  0.21
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           9559 ave        9559 max        9559 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         533238 ave      533238 max      533238 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 533238
+Ave neighs/atom = 269.85729
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 24
+Dangerous builds = 19
+unfix cool_013_273K
+
+# Stage: cool_014_253K
+fix cool_014_253K all npt temp 253 253 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25785227
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.015426431
+  estimated relative force accuracy = 4.6456239e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.92 | 21.92 | 21.92 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     27544   274.01541      1.0634165      20364.611     -516.55114      1613.1561      5151.7857      6764.9417      0            
+     27625   272.21338      1.0626541      20379.222      841.02507      1602.5473      5100.5529      6703.1003      263.82307    
+     27750   261.10092      1.0592397      20444.914     -2845.7403      1537.1272      5065.5172      6602.6443      259.91074    
+     27875   253.23291      1.0608508      20413.863      126.09523      1490.8074      5018.9865      6509.7939      262.6869     
+     28000   250.89578      1.0704017      20231.717     -1275.9198      1477.0485      4983.7525      6460.8011      258.33051    
+     28125   249.6906       1.0804221      20044.077      1823.0536      1469.9535      5017.531       6487.4845      255.32113    
+     28250   250.87541      1.0751406      20142.541     -1431.6913      1476.9286      5063.1076      6540.0362      259.64469    
+     28375   252.86847      1.0710016      20220.384     -1435.827       1488.6619      5073.0613      6561.7232      256.94991    
+     28500   251.39208      1.0691288      20255.805     -640.7523       1479.9703      5047.4509      6527.4211      260.28967    
+     28625   249.79212      1.0646822      20340.402     -1562.1752      1470.5512      4995.3172      6465.8684      257.44297    
+     28750   251.26084      1.0666899      20302.118      851.26151      1479.1977      5022.6302      6501.8278      259.61851    
+     28794   255.71256      1.0678435      20280.185      704.61387      1505.4054      5020.7918      6526.1972      255.47102    
+Loop time of 4.82468 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.192 ns/day, 2.144 hours/ns, 259.084 timesteps/s, 511.951 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.2627     | 2.2627     | 2.2627     |   0.0 | 46.90
+Bond    | 0.55363    | 0.55363    | 0.55363    |   0.0 | 11.47
+Kspace  | 1.4351     | 1.4351     | 1.4351     |   0.0 | 29.74
+Neigh   | 0.11056    | 0.11056    | 0.11056    |   0.0 |  2.29
+Comm    | 0.11062    | 0.11062    | 0.11062    |   0.0 |  2.29
+Output  | 0.00084019 | 0.00084019 | 0.00084019 |   0.0 |  0.02
+Modify  | 0.34117    | 0.34117    | 0.34117    |   0.0 |  7.07
+Other   |            | 0.01007    |            |       |  0.21
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           9485 ave        9485 max        9485 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         535838 ave      535838 max      535838 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 535838
+Ave neighs/atom = 271.17308
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 24
+Dangerous builds = 19
+unfix cool_014_253K
+
+# Stage: cool_015_233K
+fix cool_015_233K all npt temp 233 233 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.257903
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.015422044
+  estimated relative force accuracy = 4.6443027e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.92 | 21.92 | 21.92 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     28794   255.71256      1.0678435      20280.185      704.63201      1505.4054      5020.7927      6526.1981      0            
+     28875   242.77118      1.0665247      20305.262     -194.39924      1429.2182      5030.7849      6460.003       261.59833    
+     29000   238.72773      1.0714505      20211.913     -258.69881      1405.414       4954.9916      6360.4055      259.5435     
+     29125   229.69854      1.0735078      20173.179     -2424.2836      1352.2582      4928.0352      6280.2934      256.53781    
+     29250   233.6313       1.0808891      20035.417      1896.2638      1375.4108      4871.0698      6246.4806      260.68847    
+     29375   230.86798      1.082254       20010.15      -1412.5029      1359.1428      4897.6395      6256.7823      260.1737     
+     29500   238.46213      1.0790297      20069.942      2863.4278      1403.8503      4909.4198      6313.2701      257.82864    
+     29625   233.79252      1.0780491      20088.198     -1765.9979      1376.3599      4929.5748      6305.9347      259.98962    
+     29750   227.43716      1.0775989      20096.59       1655.8187      1338.9453      4908.7617      6247.707       259.49153    
+     29875   230.53861      1.0768941      20109.744      413.07099      1357.2038      4899.9273      6257.1311      256.77571    
+     30000   236.69457      1.0767934      20111.624      855.93992      1393.4445      4886.0046      6279.4491      259.95818    
+     30044   233.11787      1.0765348      20116.454     -1535.953       1372.3882      4903.8363      6276.2244      252.38945    
+Loop time of 4.8278 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.185 ns/day, 2.146 hours/ns, 258.917 timesteps/s, 511.620 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.2707     | 2.2707     | 2.2707     |   0.0 | 47.03
+Bond    | 0.55323    | 0.55323    | 0.55323    |   0.0 | 11.46
+Kspace  | 1.4337     | 1.4337     | 1.4337     |   0.0 | 29.70
+Neigh   | 0.10581    | 0.10581    | 0.10581    |   0.0 |  2.19
+Comm    | 0.11097    | 0.11097    | 0.11097    |   0.0 |  2.30
+Output  | 0.00083745 | 0.00083745 | 0.00083745 |   0.0 |  0.02
+Modify  | 0.3413     | 0.3413     | 0.3413     |   0.0 |  7.07
+Other   |            | 0.01122    |            |       |  0.23
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           9575 ave        9575 max        9575 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         540383 ave      540383 max      540383 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 540383
+Ave neighs/atom = 273.47318
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 23
+Dangerous builds = 6
+unfix cool_015_233K
+
+# Stage: cool_016_213K
+fix cool_016_213K all npt temp 213 213 50 aniso 1.000 1.000 500
+run 1250
+PPPM Kokkos initialization ...
+  using 12-bit tables for long-range coulomb
+  G vector (1/distance) = 0.25814659
+  grid = 12 12 12
+  stencil order = 5
+  estimated absolute RMS force accuracy = 0.015309923
+  estimated relative force accuracy = 4.6105379e-05
+  using double precision KISS FFT
+  3d grid and FFT values/proc = 4913 1728
+Generated 15 of 15 mixed pair_coeff terms from sixthpower/sixthpower mixing rule
+Per MPI rank memory allocation (min/avg/max) = 21.92 | 21.92 | 21.92 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+     30044   233.11787      1.0765348      20116.454     -1535.9156      1372.3882      4903.8374      6276.2255      0            
+     30125   230.27193      1.0760259      20125.969     -1043.7445      1355.6338      4857.5187      6213.1525      263.07986    
+     30250   223.47879      1.0752083      20141.273      341.43968      1315.6419      4792.8502      6108.4921      258.01035    
+     30375   211.11553      1.0785392      20079.07       681.44782      1242.8582      4780.8804      6023.7386      261.52224    
+     30500   204.59105      1.0791534      20067.641     -1057.51        1204.4479      4778.3671      5982.815       259.97593    
+     30625   209.81656      1.0759823      20126.783      952.35789      1235.211       4788.9549      6024.1659      259.7775     
+     30750   214.69335      1.0753156      20139.263     -2936.7989      1263.9212      4805.6293      6069.5504      256.80815    
+     30875   209.53334      1.0837964      19981.672      1223.6727      1233.5437      4827.7445      6061.2883      259.55642    
+     31000   212.94319      1.0880775      19903.053     -2120.7977      1253.6179      4746.9891      6000.607       259.20957    
+     31125   209.81201      1.0904418      19859.898     -330.29372      1235.1842      4763.6764      5998.8607      253.31986    
+     31250   213.42146      1.0946518      19783.518     -1322.0088      1256.4334      4770.0594      6026.4929      256.3866     
+     31294   214.67684      1.0934652      19804.986      1024.7134      1263.824       4766.0715      6029.8955      252.85947    
+Loop time of 4.83795 on 1 procs for 1250 steps with 1976 atoms
+
+Performance: 11.162 ns/day, 2.150 hours/ns, 258.374 timesteps/s, 510.547 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.2869     | 2.2869     | 2.2869     |   0.0 | 47.27
+Bond    | 0.55357    | 0.55357    | 0.55357    |   0.0 | 11.44
+Kspace  | 1.4289     | 1.4289     | 1.4289     |   0.0 | 29.53
+Neigh   | 0.10702    | 0.10702    | 0.10702    |   0.0 |  2.21
+Comm    | 0.10841    | 0.10841    | 0.10841    |   0.0 |  2.24
+Output  | 0.00090073 | 0.00090073 | 0.00090073 |   0.0 |  0.02
+Modify  | 0.34125    | 0.34125    | 0.34125    |   0.0 |  7.05
+Other   |            | 0.01102    |            |       |  0.23
+
+Nlocal:           1976 ave        1976 max        1976 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           9648 ave        9648 max        9648 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         549786 ave      549786 max      549786 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 549786
+Ave neighs/atom = 278.23178
+Ave special neighs/atom = 5.6710526
+Neighbor list builds = 23
+Dangerous builds = 9
+unfix cool_016_213K
+
+Total wall time: 0:01:54

@@ -1,0 +1,2 @@
+model,poly_id,seed,tg,tg0_selected,residual,chosen_basis,plateau_lo,plateau_hi,plateau_fit_tg,drop_reason,popt_Tg,popt_rho0,popt_a,popt_b,popt_c
+MatterSim,PE30,0,302.33975702920037,300.0,,"hybrid_sc_upper_edge[290,320]_fit_tg≈302",290.0,320.0,302.33995289685174,,302.33975702920037,0.20566297685553225,-0.00026814866191245747,-0.0010519831888985542,2.9999999999999996

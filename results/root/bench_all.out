@@ -1,0 +1,5 @@
+########## SINGLE GPU (1 rank) ##########
+single EXIT=0
+########## FOUR GPUs (4 ranks) ##########
+quad EXIT=0
+ALL DONE

@@ -1,0 +1,6 @@
+########## BUILD PE40b (PE n_ru=40, seed 7, PCFF) ##########
+build PE40b EXIT=0
+########## WAIT for PE40opls (PID 3085887) to free GPU2 ##########
+########## RUN PE40b (slow protocol) on GPU2 ##########
+PE40b EXIT=0
+PE40b_DONE

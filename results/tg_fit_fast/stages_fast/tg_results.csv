@@ -1,0 +1,2 @@
+model,poly_id,tg_mean_cf,tg_std_cf,tg_sem_t68,tg_median_cf,n_seeds,n_seeds_failed,chosen_basis,popt_Tg,popt_rho0,popt_a,popt_b,popt_c,tg_exp_val,tg_delta,tg_ae
+Vivace,PS,353.96510686459214,,,353.96510686459214,1,0,"hybrid_sc_upper_edge[360,370]_fit_tg≈354",353.96510686459214,1.0125222417071906,0.0002673634750884344,4.7197326224592637e-05,-80.45493930151416,373,-19.034893135407856,19.034893135407856

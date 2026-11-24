@@ -1,0 +1,5 @@
+########## GENERATE long-hold isothermal inputs (same PE30L cell) ##########
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PE30L_h100 n_stages 17 temps [433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213, 193, 173, 153, 133, 113]
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PE30L_h200 n_stages 17 temps [433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213, 193, 173, 153, 133, 113]
+########## RUN 100 ps/stage (GPU0) + 200 ps/stage (GPU1) ##########
+ISO_LONG_DONE

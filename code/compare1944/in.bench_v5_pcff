@@ -1,0 +1,19 @@
+# NVE ns/day benchmark v5: PCFF, 1944-atom EMC PS cell (200-step warmup + 2000 measured)
+atom_style      full
+units           real
+newton          on
+read_data       /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/small_emc/build/system.data
+kspace_style    pppm 1e-4
+include         /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/small_emc/build/system.params
+neighbor        1.5 bin
+neigh_modify    delay 50 every 2 check yes
+thermo_style    custom step temp density vol press ke pe etotal spcpu
+thermo_modify   flush yes
+thermo          500
+timestep        0.5
+fix fMOM all momentum 100 linear 1 1 1 angular
+velocity all create 533.0 42 mom yes rot yes dist gaussian
+fix nve all nve
+run 200
+reset_timestep 0
+run 2000

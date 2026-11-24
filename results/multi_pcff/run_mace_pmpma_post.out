@@ -1,0 +1,60 @@
+MACE_PMPMA lmp finished
+parsed 17 stages
+         cool_000_533K  n=  12  T= 535.36  rho=0.6263
+         cool_001_513K  n=  12  T= 510.47  rho=0.5991
+         cool_002_493K  n=  12  T= 487.09  rho=0.5858
+         cool_003_473K  n=  12  T= 476.05  rho=0.5747
+         cool_004_453K  n=  12  T= 454.50  rho=0.5634
+         cool_005_433K  n=  12  T= 432.88  rho=0.5719
+         cool_006_413K  n=  12  T= 412.57  rho=0.5688
+         cool_007_393K  n=  12  T= 393.32  rho=0.5744
+         cool_008_373K  n=  12  T= 372.18  rho=0.5819
+         cool_009_353K  n=  12  T= 356.06  rho=0.5887
+         cool_010_333K  n=  12  T= 334.03  rho=0.5991
+         cool_011_313K  n=  12  T= 313.81  rho=0.6221
+         cool_012_293K  n=  12  T= 294.49  rho=0.6374
+         cool_013_273K  n=  12  T= 272.75  rho=0.6508
+         cool_014_253K  n=  12  T= 254.82  rho=0.6561
+         cool_015_233K  n=  12  T= 235.38  rho=0.6850
+         cool_016_213K  n=  12  T= 212.56  rho=0.7127
+wrote multi_pcff/stages_mace_PMMA30.csv (17 rows)
+parsed 17 stages
+         cool_000_533K  n=  12  T= 531.99  rho=0.6312
+         cool_001_513K  n=  12  T= 516.25  rho=0.6030
+         cool_002_493K  n=  12  T= 495.08  rho=0.5818
+         cool_003_473K  n=  12  T= 472.93  rho=0.5748
+         cool_004_453K  n=  12  T= 452.51  rho=0.5869
+         cool_005_433K  n=  12  T= 431.42  rho=0.5977
+         cool_006_413K  n=  12  T= 416.93  rho=0.6082
+         cool_007_393K  n=  12  T= 389.79  rho=0.5978
+         cool_008_373K  n=  12  T= 370.59  rho=0.6113
+         cool_009_353K  n=  12  T= 354.08  rho=0.6323
+         cool_010_333K  n=  12  T= 333.66  rho=0.6501
+         cool_011_313K  n=  12  T= 313.53  rho=0.6761
+         cool_012_293K  n=  12  T= 291.10  rho=0.6958
+         cool_013_273K  n=  12  T= 273.86  rho=0.7079
+         cool_014_253K  n=  12  T= 253.79  rho=0.7338
+         cool_015_233K  n=  12  T= 235.05  rho=0.7471
+         cool_016_213K  n=  12  T= 213.86  rho=0.7602
+wrote multi_pcff/stages_mace_PMA30.csv (17 rows)
+[%s] %d rows, %d polymers, %d seeds stages_mace_PMMA30.csv 17 1 1
+
+=== stages_mace_PMMA30 (stages_mace_PMMA30.csv) ===
+   model poly_id  tg_mean_cf  tg_std_cf  tg_exp_val  tg_delta  n_seeds
+MACE-OFF  PMMA30       411.9        NaN         NaN       NaN        1
+--- bilinear PMMA30 ---
+
+multi_pcff/stages_mace_PMMA30.csv: n_seeds=1
+  seed   0: Tg_cont=  412.6 K  slope_glass=-0.00072  slope_liquid=+0.00050  sse=1.287e-03
+multi_pcff/stages_mace_PMMA30.csv: Tg_cont=  412.6 +/-   0.0 K
+[%s] %d rows, %d polymers, %d seeds stages_mace_PMA30.csv 17 1 1
+
+=== stages_mace_PMA30 (stages_mace_PMA30.csv) ===
+   model poly_id  tg_mean_cf  tg_std_cf  tg_exp_val  tg_delta  n_seeds
+MACE-OFF   PMA30       401.6        NaN         NaN       NaN        1
+--- bilinear PMA30 ---
+
+multi_pcff/stages_mace_PMA30.csv: n_seeds=1
+  seed   0: Tg_cont=  389.8 K  slope_glass=-0.00099  slope_liquid=+0.00006  sse=2.206e-03
+multi_pcff/stages_mace_PMA30.csv: Tg_cont=  389.8 +/-   0.0 K
+MACE_PMPMA_POST_DONE

@@ -1,0 +1,2 @@
+model,poly_id,seed,tg,tg0_selected,residual,chosen_basis,plateau_lo,plateau_hi,plateau_fit_tg,drop_reason,popt_Tg,popt_rho0,popt_a,popt_b,popt_c
+PCFF,PE30,0,251.80476163081934,260.0,,"hybrid_sc_upper_edge[240,270]_fit_tg≈252",240.0,270.0,251.80699411317238,,251.80476163081934,0.7644174229327682,0.00026332968455250574,0.00024396248819985835,-31.274186496524113

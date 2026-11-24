@@ -1,0 +1,40 @@
+########## BUILD PMMA ##########
+POLY PMMA smiles *CC(C)(C(=O)OC)* caps ('H*', 'H*') exp_density 1.17
+build result PolymerBuildResult(n_tot=1944, n_ru_per_chain=10, n_chains=12, smiles='*CC(C)(C(=O)OC)*', density=1.17)
+FILE build.emc 4766
+FILE build.esh 553
+FILE system.data 868537
+FILE system.params 22627
+system.data atoms 1976 vol 18509.45646215503 rho 1.170000081703778
+atom_types ['C', 'C', 'C', 'H', 'O', 'O']
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+data.lmps atoms 1976 rho 1.2594815868870932 types [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6)]
+BUILD PMMA EXIT=0
+########## BUILD PMA ##########
+POLY PMA smiles *CC(C(=O)OC)* caps ('H*', 'H*') exp_density 1.22
+build result PolymerBuildResult(n_tot=1944, n_ru_per_chain=10, n_chains=15, smiles='*CC(C(=O)OC)*', density=1.22)
+FILE build.emc 4763
+FILE build.esh 550
+FILE system.data 842932
+FILE system.params 24648
+system.data atoms 1952 vol 18792.469353212065 rho 1.2200000854169093
+atom_types ['C', 'C', 'C', 'H', 'O', 'O']
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+data.lmps atoms 1952 rho 1.2915783895869792 types [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6)]
+BUILD PMA EXIT=0
+########## BUILD PE ##########
+POLY PE smiles *CC* caps ('H*', 'H*') exp_density 0.85
+build result PolymerBuildResult(n_tot=1944, n_ru_per_chain=10, n_chains=31, smiles='*CC*', density=0.85)
+FILE build.emc 4754
+FILE build.esh 541
+FILE system.data 898545
+FILE system.params 5495
+system.data atoms 1922 vol 17111.931924084758 rho 0.8500000589831693
+atom_types ['C', 'H']
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+data.lmps atoms 1922 rho 0.5663582334129392 types [np.int64(1), np.int64(2)]
+BUILD PE EXIT=0
+BUILD ALL DONE

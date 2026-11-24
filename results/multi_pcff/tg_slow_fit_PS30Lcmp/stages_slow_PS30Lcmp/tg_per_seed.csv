@@ -1,0 +1,2 @@
+model,poly_id,seed,tg,tg0_selected,residual,chosen_basis,plateau_lo,plateau_hi,plateau_fit_tg,drop_reason,popt_Tg,popt_rho0,popt_a,popt_b,popt_c
+COMPASS,PS30Lcmp,0,239.9055734326458,240.0,,"hybrid_sc_upper_edge[240,250]_fit_tg≈240",240.0,250.0,239.90559895930107,,239.9055734326458,1.0342788169560388,0.00024544221850407455,0.00013506106507589277,2.9999999999999996

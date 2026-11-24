@@ -1,0 +1,10 @@
+########## VIVACE (mliap) ##########
+Loop time of 44.3971 on 1 procs for 500 steps with 1944 atoms
+Performance: 0.487 ns/day, 49.330 hours/ns, 11.262 timesteps/s, 21.893 katom-step/s
+########## PCFF ##########
+Loop time of 25.3093 on 1 procs for 500 steps with 1944 atoms
+Performance: 0.853 ns/day, 28.121 hours/ns, 19.756 timesteps/s, 38.405 katom-step/s
+########## MACE-OFF23 medium (mliap f32) ##########
+Loop time of 471.976 on 1 procs for 500 steps with 1944 atoms
+Performance: 0.046 ns/day, 524.418 hours/ns, 1.059 timesteps/s, 2.059 katom-step/s
+ALL BENCH DONE

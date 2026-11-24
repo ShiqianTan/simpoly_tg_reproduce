@@ -1,0 +1,94 @@
+LAMMPS (22 Jul 2025 - Update 4)
+KOKKOS mode with Kokkos version 4.6.2 is enabled
+  will use up to 1 GPU(s) per node
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (src/KOKKOS/kokkos.cpp:221)
+  using 1 OpenMP thread(s) per MPI task
+package kokkos
+package kokkos newton on neigh half
+atom_style      atomic
+atom_modify map array sort 0 2.0
+units           metal
+newton          on
+read_restart       final_npt.restart
+Reading restart file ...
+  restart file = 12 Jun 2025, LAMMPS = 22 Jul 2025
+WARNING: Restart file used different # of processors: 4 vs. 1 (src/read_restart.cpp:629)
+  restoring atom style atomic/kk from restart
+  orthogonal box = (9.219009 1.8387404 6.0840815) to (50.676471 58.05674 53.811399)
+  1 by 1 by 1 MPI processor grid
+  pair style mliap stores no restart info
+  10044 atoms
+  read_restart CPU = 0.038 seconds
+pair_style mliap unified /checkpoints/cueq-0.8.mliap.pt 0
+pair_coeff * * C C C H
+
+mass      1      12.010999996910238
+mass      2      12.010999996910238
+mass      3      12.010999996910238
+mass      4      1.0079999997406976
+neighbor        0.5 bin
+neigh_modify    delay 50 every 2 check yes
+
+thermo_style    custom step temp density vol press ke pe etotal spcpu
+thermo_modify   flush yes
+thermo          50
+timestep        0.001
+
+fix fMOM all momentum 100 linear 1 1 1 angular
+fix cool all npt temp 533.0 533.0 $(100*dt) aniso 1.000 1.000 $(1000*dt)
+fix cool all npt temp 533.0 533.0 0.10000000000000000555 aniso 1.000 1.000 $(1000*dt)
+fix cool all npt temp 533.0 533.0 0.10000000000000000555 aniso 1.000 1.000 1
+run 300
+Unused restart file global fix info:
+  fix style: npt, fix ID: final_npt
+Neighbor list info ...
+  update: every = 2 steps, delay = 50 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 7
+  ghost atom cutoff = 7
+  binsize = 7, bins = 6 9 7
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair mliap/kk, perpetual
+      attributes: full, newton on, kokkos_device
+      pair build: full/bin/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+Per MPI rank memory allocation (min/avg/max) = 4.026e+04 | 4.026e+04 | 4.026e+04 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+   4990094   538.03628      0.96583526     111235.94      655.24107      698.45698     -848733.31     -848034.86      0            
+   4990100   529.54208      0.96583246     111236.26     -37.05217       687.43016     -848721.44     -848034.01      5.9119242    
+   4990150   527.01997      0.96587663     111231.18      308.43408      684.15605     -848714.12     -848029.97      6.2186326    
+   4990200   533.91332      0.96613973     111200.89     -784.07746      693.10473     -848717.12     -848024.02      6.1546458    
+   4990250   534.91554      0.96681652     111123.04     -1232.4032      694.40577     -848712.88     -848018.47      6.3426801    
+   4990300   536.71327      0.96769771     111021.85      1130.5619      696.7395      -848707.5      -848010.76      6.1741658    
+   4990350   535.80161      0.96820969     110963.15      300.16634      695.55603     -848701        -848005.44      6.048454     
+   4990394   541.05669      0.96837837     110943.82      23.251464      702.37796     -848703.56     -848001.18      6.14494      
+Loop time of 48.5876 on 1 procs for 300 steps with 10044 atoms
+
+Performance: 0.533 ns/day, 44.988 hours/ns, 6.174 timesteps/s, 62.016 katom-step/s
+99.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 46.672     | 46.672     | 46.672     |   0.0 | 96.06
+Neigh   | 0.0040859  | 0.0040859  | 0.0040859  |   0.0 |  0.01
+Comm    | 0.036165   | 0.036165   | 0.036165   |   0.0 |  0.07
+Output  | 0.0072405  | 0.0072405  | 0.0072405  |   0.0 |  0.01
+Modify  | 1.8587     | 1.8587     | 1.8587     |   0.0 |  3.83
+Other   |            | 0.00902    |            |       |  0.02
+
+Nlocal:          10044 ave       10044 max       10044 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:          11626 ave       11626 max       11626 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:  1.30965e+06 ave 1.30965e+06 max 1.30965e+06 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1309648
+Ave neighs/atom = 130.39108
+Neighbor list builds = 6
+Dangerous builds = 6
+Total wall time: 0:01:25

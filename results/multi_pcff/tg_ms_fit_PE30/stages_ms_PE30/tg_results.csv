@@ -1,0 +1,2 @@
+model,poly_id,tg_mean_cf,tg_std_cf,tg_sem_t68,tg_median_cf,n_seeds,n_seeds_failed,chosen_basis,popt_Tg,popt_rho0,popt_a,popt_b,popt_c,tg_exp_val,tg_delta,tg_ae
+MatterSim,PE30,302.33975702920037,,,302.33975702920037,1,0,"hybrid_sc_upper_edge[290,320]_fit_tg≈302",302.33975702920037,0.20566297685553225,-0.00026814866191245747,-0.0010519831888985542,2.9999999999999996,,,

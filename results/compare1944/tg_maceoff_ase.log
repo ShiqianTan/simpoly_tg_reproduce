@@ -1,0 +1,5 @@
+# 1944 atoms, rho0=0.9000 g/cm3, cell=[28.48173251 28.48173251 28.48173251]
+# minimize done t=20.6s rho=0.9000
+# Melt at 700 K (NVT)
+# melt_700K: T=707.82 rho=0.89999 s/step=0.3721
+# Pre-equilibration at 533 K (NPT)

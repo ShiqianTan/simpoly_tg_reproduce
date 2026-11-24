@@ -1,0 +1,11 @@
+POLY PE smiles *CC* caps ('H*', 'H*') density 0.9 n_ru 40 n_tot 1944 seed 1
+build result PolymerBuildResult(n_tot=1944, n_ru_per_chain=40, n_chains=8, smiles='*CC*', density=0.9)
+FILE build.emc 4752
+FILE build.esh 539
+FILE system.data 935481
+FILE system.params 5487
+system.data atoms 1936 vol 16593.332381257533 rho 0.9000000624693302
+atom_types ['C', 'H']
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+data.lmps atoms 1936 rho 0.5836730632476779 types [np.int64(1), np.int64(2)]

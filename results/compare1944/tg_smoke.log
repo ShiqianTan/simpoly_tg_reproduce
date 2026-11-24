@@ -1,0 +1,14 @@
+# 1944 atoms, rho0=0.9000 g/cm3, cell=[28.48173251 28.48173251 28.48173251]
+# Pre-equilibration at 533 K
+# Stage: pre_533K
+[pre_533K] T=611.97 rho=0.88894 s/step=1.0507 ns/day=0.0411
+# Stage: cool_000_533K
+[cool_000_533K] T=623.23 rho=0.87259 s/step=0.9104 ns/day=0.0475
+# Stage: cool_001_513K
+[cool_001_513K] T=662.33 rho=0.85552 s/step=0.9050 ns/day=0.0477
+# Stage: cool_002_493K
+[cool_002_493K] T=677.69 rho=0.84489 s/step=0.8974 ns/day=0.0481
+# Stage: cool_003_473K
+[cool_003_473K] T=688.77 rho=0.83413 s/step=0.8940 ns/day=0.0483
+# Stage: cool_004_453K
+[cool_004_453K] T=693.56 rho=0.82066 s/step=0.8841 ns/day=0.0489

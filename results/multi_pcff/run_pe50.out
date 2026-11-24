@@ -1,0 +1,5 @@
+########## BUILD PE n_ru=50 (PCFF) ##########
+build PE50 EXIT=0
+########## RUN PE50 (slow protocol) ##########
+PE50 EXIT=0
+PE50_DONE

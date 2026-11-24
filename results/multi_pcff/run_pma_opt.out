@@ -1,0 +1,8 @@
+=== builds ===
+=== inputs ===
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMAoptA n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMAoptB n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMAoptC n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMAoptD n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+=== launching 4 parallel runs ===
+PMA_OPT_DONE

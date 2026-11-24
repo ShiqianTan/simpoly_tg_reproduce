@@ -1,0 +1,5 @@
+########## FF PMMA30opls (GPU 3) ##########
+FF PMMA30opls EXIT=0
+########## FF PMA30opls (GPU 3) ##########
+FF PMA30opls EXIT=0
+FF_CMP_GPU3 DONE

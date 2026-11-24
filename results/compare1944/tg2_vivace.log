@@ -1,0 +1,67 @@
+LAMMPS (22 Jul 2025 - Update 4)
+KOKKOS mode with Kokkos version 4.6.2 is enabled
+  will use up to 1 GPU(s) per node
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (src/KOKKOS/kokkos.cpp:221)
+  using 1 OpenMP thread(s) per MPI task
+package kokkos
+package kokkos newton on neigh half
+# Vivace ML-IAP cooling scan v2, 1944-atom EMC PS cell
+atom_style      atomic
+atom_modify     map array sort 0 2.0
+units           metal
+newton          on
+read_data       /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/small_emc/build/data.lmps
+Reading data file ...
+  orthogonal box = (0 0 0) to (28.481733 28.481733 28.481733)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  1944 atoms
+  read_data CPU = 0.037 seconds
+pair_style mliap unified /checkpoints/cueq-0.8.mliap.pt 0
+pair_coeff * * C C C H
+mass 1 12.010999996910238
+mass 2 12.010999996910238
+mass 3 12.010999996910238
+mass 4 1.0079999997406976
+neighbor        0.5 bin
+neigh_modify    delay 50 every 2 check yes
+thermo_style    custom step temp density vol press ke pe ebond evdwl ecoul elong etotal spcpu
+thermo_modify   flush yes
+thermo          250
+timestep        0.0005
+fix fMOM all momentum 100 linear 1 1 1 angular
+velocity all create 533.0 42 mom yes rot yes dist gaussian
+
+# Pre-equilibration at 533 K
+fix pre all npt temp 533.0 533.0 0.05 aniso 1.000 1.000 0.5
+run 10000
+Neighbor list info ...
+  update: every = 2 steps, delay = 50 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 7
+  ghost atom cutoff = 7
+  binsize = 7, bins = 5 5 5
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair mliap/kk, perpetual
+      attributes: full, newton on, kokkos_device
+      pair build: full/bin/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+Per MPI rank memory allocation (min/avg/max) = 1759 | 1759 | 1759 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         E_bond         E_vdwl         E_coul         E_long         TotEng         S/CPU     
+         0   533            0.89999176     23104.64       12622.428      133.86426     -164073.44      0             -164073.44      0              0             -163939.57      0            
+       250   668.2316       0.79709171     26087.319      6588.9099      167.82801     -164197.03      0             -164197.03      0              0             -164029.2       10.748728    
+       500   552.04623      0.74417645     27942.278      1523.2646      138.64777     -164240.28      0             -164240.28      0              0             -164101.63      10.979001    
+       750   518.32782      0.7194218      28903.747      2031.899       130.17931     -164260.14      0             -164260.14      0              0             -164129.96      11.004276    
+      1000   538.32838      0.69725332     29822.713      1518.8333      135.2025      -164258.38      0             -164258.38      0              0             -164123.17      11.000397    
+      1250   526.53657      0.67536772     30789.132      1393.2866      132.24096     -164260.44      0             -164260.44      0              0             -164128.2       11.051775    
+      1500   547.62855      0.66510555     31264.189      644.00657      137.53826     -164257.05      0             -164257.05      0              0             -164119.51      11.016505    
+      1750   523.31626      0.64606598     32185.545      933.68147      131.43217     -164254.44      0             -164254.44      0              0             -164123.01      11.072743    
+      2000   548.62001      0.63023083     32994.238     -473.15528      137.78727     -164255.38      0             -164255.38      0              0             -164117.59      11.096829    
+      2250   524.93019      0.61935263     33573.743      610.50072      131.83751     -164254.55      0             -164254.55      0              0             -164122.71      11.110868    
+      2500   531.68353      0.60759241     34223.577      618.70774      133.53363     -164257.92      0             -164257.92      0              0             -164124.39      11.464308    
+      2750   524.41451      0.59734441     34810.715      1303.9063      131.708       -164256.47      0             -164256.47      0              0             -164124.76      11.138881    
+      3000   543.94268      0.58822922     35350.141      931.63982      136.61254     -164255.44      0             -164255.44      0              0             -164118.82      11.21359     
+      3250   513.07035      0.57532591     36142.968      197.0821       128.85888     -164255.09      0             -164255.09      0              0             -164126.23      11.114373    
+      3500   528.71899      0.56557522     36766.083      8.6603707      132.78908     -164251.78      0             -164251.78      0              0             -164118.99      11.398683    
+      3750   555.10153      0.55738397     37306.394     -1540.0081      139.41512     -164252.53      0             -164252.53      0              0             -164113.12      11.509304    

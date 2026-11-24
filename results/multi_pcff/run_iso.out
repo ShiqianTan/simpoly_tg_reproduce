@@ -1,0 +1,17 @@
+### generating in.tg_iso_PE30Lopls (T 433 -> 113, melt_dt 0.5)
+### generating in.tg_iso_PS30L (T 533 -> 213, melt_dt 0.5)
+### generating in.tg_iso_PE30L (T 433 -> 113, melt_dt 0.5)
+### generating in.tg_iso_PS30Lcmp (T 533 -> 213, melt_dt 0.5)
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PE30Lopls n_stages 17 temps [433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213, 193, 173, 153, 133, 113]
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PS30Lcmp n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PE30L n_stages 17 temps [433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213, 193, 173, 153, 133, 113]
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PS30L n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+########## ISO PE30Lopls on GPU 0 ##########
+########## ISO PS30Lcmp on GPU 1 ##########
+########## ISO PE30L on GPU 2 ##########
+########## ISO PS30L on GPU 3 ##########
+ISO PE30Lopls EXIT=0
+ISO PE30L EXIT=0
+ISO PS30L EXIT=0
+ISO PS30Lcmp EXIT=0
+ISO_DONE

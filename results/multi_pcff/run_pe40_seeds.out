@@ -1,0 +1,6 @@
+########## BUILD PE40 PCFF seeds 1/2/3 ##########
+build PE40s1 EXIT=0
+build PE40s2 EXIT=0
+build PE40s3 EXIT=0
+########## RUNS (slow protocol) ##########
+PE40_SEEDS_DONE

@@ -1,0 +1,22 @@
+# NVE ns/day benchmark: MACE-OFF23 medium (float32 cueq mliap), 1944-atom EMC PS cell
+atom_style      atomic
+atom_modify     map array sort 0 2.0
+units           metal
+newton          on
+read_data       /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/small_emc/build/data.lmps
+pair_style mliap unified /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/compare1944/MACE-OFF23_medium-mliap32_lammps.pt 0
+pair_coeff * * C C C H
+mass 1 12.010999996910238
+mass 2 12.010999996910238
+mass 3 12.010999996910238
+mass 4 1.0079999997406976
+neighbor        0.5 bin
+neigh_modify    delay 50 every 2 check yes
+thermo_style    custom step temp density vol press ke pe etotal spcpu
+thermo_modify   flush yes
+thermo          100
+timestep        0.0005
+fix fMOM all momentum 100 linear 1 1 1 angular
+velocity all create 533.0 42 mom yes rot yes dist gaussian
+fix nve all nve
+run 500

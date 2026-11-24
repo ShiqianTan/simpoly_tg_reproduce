@@ -1,0 +1,11 @@
+START PMMA30b on GPU2 11:01:23
+START PMMA30 on GPU0 11:01:23
+START PMA30 on GPU3 11:01:23
+DONE PMA30 EXIT=0 11:02:04
+run_mace_lammps.sh: line 15: 3452272 Aborted                 (core dumped) /usr/local/lammps/bin/lmp -k on g 1 -sf kk -pk kokkos newton on neigh half -in "$1" -log "$2" > "$2.out" 2>&1
+DONE PMMA30b EXIT=0 11:02:08
+START PMA30b on GPU2 11:02:23
+run_mace_lammps.sh: line 15: 3452942 Aborted                 (core dumped) /usr/local/lammps/bin/lmp -k on g 1 -sf kk -pk kokkos newton on neigh half -in "$1" -log "$2" > "$2.out" 2>&1
+DONE PMA30b EXIT=0 11:03:01
+DONE PMMA30 EXIT=0 17:31:59
+MACE_ISO_DONE 17:31:59

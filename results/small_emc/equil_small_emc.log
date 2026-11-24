@@ -1,0 +1,58 @@
+LAMMPS (22 Jul 2025 - Update 4)
+KOKKOS mode with Kokkos version 4.6.2 is enabled
+  will use up to 1 GPU(s) per node
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (src/KOKKOS/kokkos.cpp:221)
+  using 1 OpenMP thread(s) per MPI task
+package kokkos
+package kokkos newton on neigh half
+# Equilibrate EMC-built ~1944-atom PS cell with Vivace ML-IAP (aniso NPT, 533 K)
+atom_style      atomic
+atom_modify     map array sort 0 2.0
+units           metal
+newton          on
+read_data       small_emc/build/data.lmps
+Reading data file ...
+  orthogonal box = (0 0 0) to (28.481733 28.481733 28.481733)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  1944 atoms
+  read_data CPU = 0.036 seconds
+pair_style mliap unified /checkpoints/cueq-0.8.mliap.pt 0
+pair_coeff * * C C C H
+mass 1 12.010999996910238
+mass 2 12.010999996910238
+mass 3 12.010999996910238
+mass 4 1.0079999997406976
+neighbor        0.5 bin
+neigh_modify    delay 50 every 2 check yes
+thermo_style    custom step temp density vol press ke pe etotal spcpu
+thermo_modify   flush yes
+thermo          250
+timestep        0.0005
+fix fMOM all momentum 100 linear 1 1 1 angular
+velocity all create 533.0 42 mom yes rot yes dist gaussian
+fix npt all npt temp 533 533 0.05 aniso 1.0 1.0 0.5
+run 10000
+Neighbor list info ...
+  update: every = 2 steps, delay = 50 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 7
+  ghost atom cutoff = 7
+  binsize = 7, bins = 5 5 5
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair mliap/kk, perpetual
+      attributes: full, newton on, kokkos_device
+      pair build: full/bin/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+Per MPI rank memory allocation (min/avg/max) = 1759 | 1759 | 1759 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+         0   533            0.89999176     23104.64       12622.428      133.86426     -164073.44     -163939.57      0            
+       250   668.23156      0.79709171     26087.319      6588.9075      167.828       -164197.03     -164029.2       9.4177256    
+       500   552.04561      0.74417646     27942.278      1523.385       138.64761     -164240.28     -164101.63      9.5277218    
+       750   518.32439      0.71942178     28903.748      2029.7268      130.17845     -164260.14     -164129.96      9.5718957    
+      1000   538.35161      0.69725327     29822.715      1520.3941      135.20833     -164258.38     -164123.17      9.7404538    
+      1250   526.49946      0.67536774     30789.131      1395.4235      132.23163     -164260.41     -164128.17      9.942667     
+      1500   547.38264      0.66510649     31264.145      593.86549      137.4765      -164256.97     -164119.49      9.8639491    
+      1750   522.3268       0.64606718     32185.485      830.57589      131.18366     -164254.19     -164123         9.8503651    
+      2000   548.83058      0.63022962     32994.301     -568.26281      137.84015     -164255.45     -164117.61      9.9417457    

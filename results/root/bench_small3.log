@@ -1,0 +1,23 @@
+LAMMPS (22 Jul 2025 - Update 4)
+KOKKOS mode with Kokkos version 4.6.2 is enabled
+  will use up to 1 GPU(s) per node
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (src/KOKKOS/kokkos.cpp:221)
+  using 1 OpenMP thread(s) per MPI task
+package kokkos
+package kokkos newton on neigh half
+atom_style      atomic
+atom_modify map array sort 0 2.0
+units           metal
+newton          on
+read_data       small.data
+Reading data file ...
+  orthogonal box = (9.219 1.839 6.084) to (39.219 35.839 36.084)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  2079 atoms
+  reading velocities ...
+  2079 velocities
+  read_data CPU = 0.038 seconds
+wrap            all
+ERROR: Unknown command: wrap            all (src/input.cpp:314)
+Last input line: wrap all

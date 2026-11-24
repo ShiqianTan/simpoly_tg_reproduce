@@ -1,0 +1,30 @@
+/home/tione/notebook/home/tanshiqian/envs/mattersim/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+# n_atoms=2002 rho0=0.9000 device=cuda:3
+[32m2026-09-16 19:02:31.622[0m | [1mINFO    [0m | [36mmattersim.forcefield.potential[0m:[36mfrom_checkpoint[0m:[36m922[0m - [1mLoading the pre-trained mattersim-v1.0.0-1M.pth model[0m
+# minimize t=44.2s rho=0.9000
+/home/tione/notebook/home/tanshiqian/simpoly_tg_repro/compare1944/ase_ms_npt_pe30.py:35: DeprecationWarning: Use thermalize_momenta
+  MaxwellBoltzmannDistribution(atoms, temperature_K=700.0, rng=np.random.default_rng(42))
+# melt700 done t=966.7s rho=0.9000
+[npt] t=967s step=    0 T=  695.1 P=0.01165 rho=0.9000
+[npt] t=1115s step=  100 T=  601.9 P=0.00607 rho=0.7740
+[npt] t=1235s step=  200 T=  533.6 P=0.00356 rho=0.6999
+[npt] t=1338s step=  300 T=  496.5 P=0.00311 rho=0.6573
+[npt] t=1438s step=  400 T=  469.3 P=0.00288 rho=0.6259
+[npt] t=1521s step=  500 T=  456.9 P=0.00154 rho=0.6030
+[npt] t=1607s step=  600 T=  457.0 P=0.00105 rho=0.5858
+[npt] t=1697s step=  700 T=  438.8 P=0.00111 rho=0.5694
+[npt] t=1787s step=  800 T=  437.5 P=0.00166 rho=0.5564
+[npt] t=1857s step=  900 T=  442.3 P=0.00085 rho=0.5446
+[npt] t=1928s step= 1000 T=  434.4 P=0.00116 rho=0.5338
+[npt] t=2015s step= 1100 T=  438.8 P=0.00201 rho=0.5244
+[npt] t=2095s step= 1200 T=  435.6 P=0.00133 rho=0.5160
+[npt] t=2176s step= 1300 T=  428.4 P=0.00108 rho=0.5096
+[npt] t=2260s step= 1400 T=  432.6 P=0.00079 rho=0.5041
+[npt] t=2335s step= 1500 T=  450.2 P=0.00067 rho=0.4956
+[npt] t=2413s step= 1600 T=  431.1 P=0.00075 rho=0.4911
+[npt] t=2484s step= 1700 T=  439.9 P=0.00001 rho=0.4851
+[npt] t=2563s step= 1800 T=  433.1 P=0.00108 rho=0.4806
+[npt] t=2640s step= 1900 T=  434.1 P=0.00139 rho=0.4741
+[npt] t=2711s step= 2000 T=  427.4 P=0.00102 rho=0.4684
+[npt] t=2788s step= 2100 T=  432.2 P=0.00005 rho=0.4634

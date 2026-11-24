@@ -1,0 +1,5 @@
+########## GENERATE MACE-OFF23 SHORT inputs (PE30 seed42, PE30b seed7) ##########
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_mace_PE30 n_stages 17 temps [433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213, 193, 173, 153, 133, 113]
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_mace_PE30b n_stages 17 temps [433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213, 193, 173, 153, 133, 113]
+########## RUN MACE (GPU2: PE30, GPU3: PE30b) ##########
+MACE_PE_DONE

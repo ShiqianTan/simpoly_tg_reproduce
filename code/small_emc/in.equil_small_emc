@@ -1,0 +1,23 @@
+# Equilibrate EMC-built ~1944-atom PS cell with Vivace ML-IAP (aniso NPT, 533 K)
+atom_style      atomic
+atom_modify     map array sort 0 2.0
+units           metal
+newton          on
+read_data       small_emc/build/data.lmps
+pair_style mliap unified /checkpoints/cueq-0.8.mliap.pt 0
+pair_coeff * * C C C H
+mass 1 12.010999996910238
+mass 2 12.010999996910238
+mass 3 12.010999996910238
+mass 4 1.0079999997406976
+neighbor        0.5 bin
+neigh_modify    delay 50 every 2 check yes
+thermo_style    custom step temp density vol press ke pe etotal spcpu
+thermo_modify   flush yes
+thermo          250
+timestep        0.0005
+fix fMOM all momentum 100 linear 1 1 1 angular
+velocity all create 533.0 42 mom yes rot yes dist gaussian
+fix npt all npt temp 533 533 0.05 aniso 1.0 1.0 0.5
+run 10000
+write_data small_emc/small_ps_equil.data

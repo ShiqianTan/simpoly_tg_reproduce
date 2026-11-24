@@ -1,0 +1,13 @@
+########## STRICT PS30 ##########
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PS30 n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+STRICT PS30 EXIT=0
+########## STRICT PMMA30 ##########
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMMA30 n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+STRICT PMMA30 EXIT=0
+########## STRICT PMA30 ##########
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMA30 n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+STRICT PMA30 EXIT=0
+########## STRICT PE30 ##########
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PE30 n_stages 17 temps [433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213, 193, 173, 153, 133, 113]
+STRICT PE30 EXIT=0
+STRICT30 DONE

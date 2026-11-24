@@ -1,0 +1,19 @@
+waiting for builds...
+builds present
+### generating in.tg_iso_PMMA30L (T 533 -> 213, melt_dt 0.25)
+### generating in.tg_iso_PMMA30Lopls (T 533 -> 213, melt_dt 0.25)
+### generating in.tg_iso_PMA30L (T 533 -> 213, melt_dt 0.25)
+### generating in.tg_iso_PMA30Lopls (T 533 -> 213, melt_dt 0.25)
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMMA30Lopls n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMMA30L n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMA30L n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMA30Lopls n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+########## ISO PMMA30Lopls on GPU 2 ##########
+########## ISO PMMA30L on GPU 0 ##########
+########## ISO PMA30L on GPU 1 ##########
+########## ISO PMA30Lopls on GPU 3 ##########
+ISO PMA30Lopls EXIT=0
+ISO PMMA30Lopls EXIT=0
+ISO PMA30L EXIT=0
+ISO PMMA30L EXIT=0
+ISO2_DONE

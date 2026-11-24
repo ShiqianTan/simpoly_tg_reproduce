@@ -1,0 +1,54 @@
+LAMMPS (22 Jul 2025 - Update 4)
+KOKKOS mode with Kokkos version 4.6.2 is enabled
+  will use up to 1 GPU(s) per node
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (src/KOKKOS/kokkos.cpp:221)
+  using 1 OpenMP thread(s) per MPI task
+package kokkos
+package kokkos newton on neigh half
+atom_style      atomic
+atom_modify map array sort 0 2.0
+units           metal
+newton          on
+read_data       small.data
+Reading data file ...
+  orthogonal box = (9.219 1.839 6.084) to (39.219 35.839 36.084)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  2079 atoms
+  reading velocities ...
+  2079 velocities
+  read_data CPU = 0.040 seconds
+pair_style mliap unified /checkpoints/cueq-0.8.mliap.pt 0
+pair_coeff * * C C C H
+
+mass      1      12.010999996910238
+mass      2      12.010999996910238
+mass      3      12.010999996910238
+mass      4      1.0079999997406976
+neighbor        0.5 bin
+neigh_modify    delay 50 every 2 check yes
+
+thermo_style    custom step temp density vol press ke pe etotal spcpu
+thermo_modify   flush yes
+thermo          50
+timestep        0.001
+
+velocity        all create 533.0 4928459 mom yes rot yes dist gaussian
+fix             fMOM all momentum 100 linear 1 1 1 angular
+fix             nve all nve
+run             500
+Neighbor list info ...
+  update: every = 2 steps, delay = 50 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 7
+  ghost atom cutoff = 7
+  binsize = 7, bins = 5 5 5
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair mliap/kk, perpetual
+      attributes: full, newton on, kokkos_device
+      pair build: full/bin/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+Per MPI rank memory allocation (min/avg/max) = 1445 | 1445 | 1445 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+         0   533            0.73111108     30600          4378.9148      143.16518     -176016.27     -175873.1       0            

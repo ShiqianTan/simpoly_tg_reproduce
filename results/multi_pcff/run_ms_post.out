@@ -1,0 +1,36 @@
+MatterSim run PE30 finished
+parsed 17 stages
+         cool_000_433K  n=  12  T= 424.58  rho=0.3891
+         cool_001_413K  n=  12  T= 408.46  rho=0.3450
+         cool_002_393K  n=  12  T= 399.20  rho=0.3111
+         cool_003_373K  n=  12  T= 371.17  rho=0.2919
+         cool_004_353K  n=  12  T= 351.67  rho=0.2642
+         cool_005_333K  n=  12  T= 332.03  rho=0.2517
+         cool_006_313K  n=  12  T= 315.67  rho=0.2313
+         cool_007_293K  n=  12  T= 291.47  rho=0.2166
+         cool_008_273K  n=  12  T= 276.58  rho=0.2025
+         cool_009_253K  n=  12  T= 251.26  rho=0.1909
+         cool_010_233K  n=  12  T= 232.59  rho=0.1821
+         cool_011_213K  n=  12  T= 215.15  rho=0.1751
+         cool_012_193K  n=  12  T= 194.03  rho=0.1703
+         cool_013_173K  n=  12  T= 172.54  rho=0.1637
+         cool_014_153K  n=  12  T= 152.48  rho=0.1655
+         cool_015_133K  n=  12  T= 134.05  rho=0.1641
+         cool_016_113K  n=  12  T= 113.65  rho=0.1655
+wrote multi_pcff/stages_ms_PE30.csv (17 rows)
+[%s] %d rows, %d polymers, %d seeds stages_ms_PE30.csv 17 1 1
+
+=== stages_ms_PE30 (stages_ms_PE30.csv) ===
+    model poly_id  tg_mean_cf  tg_std_cf  tg_exp_val  tg_delta  n_seeds
+MatterSim    PE30       302.3        NaN         NaN       NaN        1
+
+multi_pcff/stages_ms_PE30.csv: n_seeds=1
+  seed   0: Tg_cont=  291.5 K  slope_glass=+0.00025  slope_liquid=+0.00123  sse=1.778e-03
+multi_pcff/stages_ms_PE30.csv: Tg_cont=  291.5 +/-   0.0 K
+/home/tione/notebook/home/tanshiqian/simpoly_tg_repro/hyperbolic_tg.py:34: OptimizeWarning: Covariance of the parameters could not be estimated
+  popt, _ = curve_fit(patrone, T, rho, p0=p0, maxfev=200000)
+
+multi_pcff/stages_ms_PE30.csv: n_seeds=1
+  seed   0: Tg_hyperbolic=  302.9 K  slope_glass=+0.00028  slope_liquid=+0.00131  sse=1.652e-03
+multi_pcff/stages_ms_PE30.csv: Tg_hyperbolic=  302.9 +/-   0.0 K
+MS_POST_DONE PE30

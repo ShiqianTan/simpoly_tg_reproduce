@@ -1,0 +1,2 @@
+model,poly_id,seed,tg,tg0_selected,residual,chosen_basis,plateau_lo,plateau_hi,plateau_fit_tg,drop_reason,popt_Tg,popt_rho0,popt_a,popt_b,popt_c
+Vivace,PS,0,268.8024841582335,270.0,,"hybrid_sc_upper_edge[250,280]_fit_tg≈269",250.0,280.0,268.8021738598676,,268.8024841582335,1.0377516136473963,0.00019671537685842056,0.00026477072997719273,-270.8469989084102

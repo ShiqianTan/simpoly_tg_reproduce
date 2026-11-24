@@ -1,0 +1,8 @@
+waiting for PE30Lcmp / PE30Lcmpb ...
+===== PE30Lcmp =====
+rho-Tg: multi_pcff/iso_PE30Lcmp_stages.csv: Tg_cont=  273.0 +/-   0.0 K
+E-Tg:   multi_pcff/isoE_PE30Lcmp_stages.csv: Tg_cont=  273.0 +/-   0.0 K
+===== PE30Lcmpb =====
+rho-Tg: multi_pcff/iso_PE30Lcmpb_stages.csv: Tg_cont=  233.1 +/-   0.0 K
+E-Tg:   multi_pcff/isoE_PE30Lcmpb_stages.csv: Tg_cont=  253.0 +/-   0.0 K
+ISO_PECMP_PARSE_DONE

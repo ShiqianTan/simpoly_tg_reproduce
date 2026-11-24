@@ -1,0 +1,25 @@
+atom_style atomic
+atom_modify map array sort 0 2.0
+units metal
+newton on
+
+read_data /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/PE30/data.lmps
+
+pair_style mliap unified /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/compare1944/mattersim-v1.0.0-1M_mliap.pt
+pair_coeff * * C H
+
+mass 1 12.01115
+mass 2 1.00797
+
+neighbor 0.5 bin
+neigh_modify delay 50 every 2 check yes
+
+thermo_style custom step temp density vol press pe etotal spcpu
+thermo 50
+timestep 0.0005
+
+velocity all create 300.0 42 mom yes rot yes dist gaussian
+fix fMOM all momentum 100 linear 1 1 1 angular
+fix nve all nve
+
+run 200

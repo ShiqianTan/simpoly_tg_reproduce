@@ -1,0 +1,11 @@
+### generating in.tg_slow_PS30 (T 533 -> 213, melt_dt 0.5, 20000 steps/stage)
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PS30 n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+### generating in.tg_slow_PMMA30 (T 533 -> 213, melt_dt 0.25, 20000 steps/stage)
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMMA30 n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+### generating in.tg_slow_PMA30 (T 533 -> 213, melt_dt 0.25, 20000 steps/stage)
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PMA30 n_stages 17 temps [533, 513, 493, 473, 453, 433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213]
+### generating in.tg_slow_PE30 (T 433 -> 113, melt_dt 0.5, 20000 steps/stage)
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PE30 n_stages 17 temps [433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213, 193, 173, 153, 133, 113]
+########## SLOW PS30 ##########
+SLOW PS30 EXIT=0
+########## SLOW PMMA30 ##########

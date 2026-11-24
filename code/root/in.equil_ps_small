@@ -1,0 +1,23 @@
+atom_style      atomic
+atom_modify map array sort 0 2.0
+units           metal
+newton          on
+read_data       small_ps.data
+pair_style mliap unified /checkpoints/cueq-0.8.mliap.pt 0
+pair_coeff * * C H
+
+mass      1      12.011
+mass      2      1.008
+neighbor        0.5 bin
+neigh_modify    delay 50 every 2 check yes
+
+thermo_style    custom step temp density vol press ke pe etotal spcpu
+thermo_modify   flush yes
+thermo          100
+timestep        0.0005
+
+velocity        all create 533.0 4928459 mom yes rot yes dist gaussian
+fix             fMOM all momentum 100 linear 1 1 1 angular
+fix             npt all npt temp 533.0 533.0 $(100*dt) aniso 1.000 1.000 $(1000*dt)
+run             8000
+write_data      small_ps_equil.data

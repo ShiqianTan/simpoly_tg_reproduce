@@ -1,0 +1,11 @@
+POLY PMMA smiles *CC(C)(C(=O)OC)* caps ('H*', 'H*') density 0.9 n_ru 30 n_tot 1944 seed 1
+build result PolymerBuildResult(n_tot=1944, n_ru_per_chain=30, n_chains=4, smiles='*CC(C)(C(=O)OC)*', density=0.9)
+FILE build.emc 4764
+FILE build.esh 551
+FILE system.data 803928
+FILE system.params 22628
+system.data atoms 1808 vol 22181.591798309357 rho 0.9000000621955848
+atom_types ['C', 'C', 'C', 'H', 'O', 'O']
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+data.lmps atoms 1808 rho 0.957543619690162 types [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6)]

@@ -1,0 +1,150 @@
+LAMMPS (22 Jul 2025 - Update 4)
+KOKKOS mode with Kokkos version 4.6.2 is enabled
+  will use up to 1 GPU(s) per node
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (src/KOKKOS/kokkos.cpp:221)
+  using 1 OpenMP thread(s) per MPI task
+package kokkos
+package kokkos newton on neigh half
+# Relax + equilibrate EMC-built ~1944-atom PS cell (Vivace ML-IAP)
+atom_style      atomic
+atom_modify     map array sort 0 2.0
+units           metal
+newton          on
+read_data       small_emc/build/data.lmps
+Reading data file ...
+  orthogonal box = (0 0 0) to (28.481733 28.481733 28.481733)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  1944 atoms
+  read_data CPU = 0.038 seconds
+pair_style mliap unified /checkpoints/cueq-0.8.mliap.pt 0
+pair_coeff * * C C C H
+mass 1 12.010999996910238
+mass 2 12.010999996910238
+mass 3 12.010999996910238
+mass 4 1.0079999997406976
+neighbor        0.5 bin
+neigh_modify    delay 50 every 2 check yes
+thermo_style    custom step temp density vol press ke pe etotal spcpu
+thermo_modify   flush yes
+thermo          250
+timestep        0.0005
+fix fMOM all momentum 100 linear 1 1 1 angular
+
+minimize 1e-6 1e-8 2000 20000
+Switching to 'neigh_modify every 1 delay 0 check yes' setting during minimization
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 7
+  ghost atom cutoff = 7
+  binsize = 7, bins = 5 5 5
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair mliap/kk, perpetual
+      attributes: full, newton on, kokkos_device
+      pair build: full/bin/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+WARNING: Fix MINIMIZE/kk not compatible with sending data in Kokkos communication (src/KOKKOS/comm_kokkos.cpp:799)
+WARNING: Fix with atom-based arrays not compatible with sending data in Kokkos communication, switching to classic exchange/border communication (src/KOKKOS/comm_kokkos.cpp:812)
+Per MPI rank memory allocation (min/avg/max) = 1760 | 1760 | 1760 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+         0   0              0.89999176     23104.64       6433.9402      0             -164073.44     -164073.44      0            
+        39   0              0.89999176     23104.64       16201.398      0             -164289.41     -164289.41      5.3754954    
+Loop time of 7.25523 on 1 procs for 39 steps with 1944 atoms
+
+99.9% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+Minimization stats:
+  Stopping criterion = energy tolerance
+  Energy initial, next-to-last, final = 
+          -164073.4375     -164289.359375      -164289.40625
+  Force two-norm initial, final = 94.895152 10.576644
+  Force max component initial, final = 6.1217039 6.7134263
+  Final line search alpha, max atom move = 0.087644497 0.58839487
+  Iterations, force evaluations = 39 78
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 6.6179     | 6.6179     | 6.6179     |   0.0 | 91.22
+Neigh   | 0.094534   | 0.094534   | 0.094534   |   0.0 |  1.30
+Comm    | 0.14645    | 0.14645    | 0.14645    |   0.0 |  2.02
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 0.3964     |            |       |  5.46
+
+Nlocal:           1944 ave        1944 max        1944 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           4019 ave        4019 max        4019 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:       278142 ave      278142 max      278142 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 278142
+Ave neighs/atom = 143.07716
+Neighbor list builds = 8
+Dangerous builds = 0
+
+velocity all create 533.0 42 mom yes rot yes dist gaussian
+fix nvt all nvt temp 533 533 0.1
+run 2000
+Per MPI rank memory allocation (min/avg/max) = 1760 | 1760 | 1760 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+        39   533            0.89999176     23104.64       22389.886      133.86426     -164289.41     -164155.54      0            
+       250   413.27371      0.89999176     23104.64       12273.752      103.79471     -164245.72     -164141.92      11.01297     
+       500   559.4103       0.89999176     23104.64       7513.4432      140.49727     -164261.38     -164120.88      11.254129    
+       750   555.40411      0.89999176     23104.64       4529.5536      139.49111     -164258.28     -164118.79      11.176792    
+      1000   549.10014      0.89999176     23104.64       6220.5094      137.90785     -164270.56     -164132.65      10.349544    
+      1250   511.00997      0.89999176     23104.64       5073.7988      128.34141     -164266.86     -164138.52      11.440142    
+      1500   535.17764      0.89999176     23104.64       3611.8875      134.41118     -164263.8      -164129.39      11.39897     
+      1750   535.47517      0.89999176     23104.64       5179.9544      134.48591     -164256.91     -164122.42      11.468757    
+      2000   546.65486      0.89999176     23104.64       2477.9596      137.29371     -164257.8      -164120.5       11.344278    
+      2039   545.1761       0.89999176     23104.64       3098.4071      136.92232     -164258.16     -164121.23      11.208413    
+Loop time of 178.997 on 1 procs for 2000 steps with 1944 atoms
+
+Performance: 0.483 ns/day, 49.721 hours/ns, 11.173 timesteps/s, 21.721 katom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 162.43     | 162.43     | 162.43     |   0.0 | 90.74
+Neigh   | 0.32779    | 0.32779    | 0.32779    |   0.0 |  0.18
+Comm    | 0.70065    | 0.70065    | 0.70065    |   0.0 |  0.39
+Output  | 0.020501   | 0.020501   | 0.020501   |   0.0 |  0.01
+Modify  | 15.359     | 15.359     | 15.359     |   0.0 |  8.58
+Other   |            | 0.1623     |            |       |  0.09
+
+Nlocal:           1944 ave        1944 max        1944 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           4349 ave        4349 max        4349 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:       239056 ave      239056 max      239056 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 239056
+Ave neighs/atom = 122.97119
+Neighbor list builds = 40
+Dangerous builds = 40
+unfix nvt
+
+fix npt all npt temp 533 533 0.1 aniso 1.0 1.0 2.0
+run 20000
+Per MPI rank memory allocation (min/avg/max) = 1760 | 1760 | 1760 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+      2039   545.1761       0.89999176     23104.64       3098.4071      136.92232     -164258.16     -164121.23      0            
+      2250   534.9414       0.89741639     23170.945      858.28666      134.35185     -164258.27     -164123.91      9.636169     
+      2500   519.75819      0.88896916     23391.122      528.55625      130.53855     -164260.83     -164130.29      9.6739209    
+      2750   530.60787      0.87801426     23682.97       2261.3982      133.26347     -164263.41     -164130.14      9.650657     
+      3000   512.85578      0.86448389     24053.642      3121.1028      128.80499     -164256.5      -164127.7       9.6024132    
+      3250   549.79734      0.85115668     24430.268      426.94406      138.08296     -164261        -164122.92      9.7110625    
+      3500   522.71128      0.83958073     24767.107      1416.2902      131.28022     -164255.8      -164124.52      9.7019533    
+      3750   539.54133      0.8294743      25068.873      1635.8093      135.50713     -164260.72     -164125.21      9.6845463    
+      4000   523.76019      0.82155215     25310.61       726.93314      131.54366     -164255.7      -164124.16      9.6614578    
+      4250   541.40167      0.81410055     25542.282     -112.12751      135.97436     -164253.38     -164117.4       9.7312107    
+      4500   547.82077      0.80743117     25753.261      233.1069       137.58654     -164257.66     -164120.07      9.7364028    

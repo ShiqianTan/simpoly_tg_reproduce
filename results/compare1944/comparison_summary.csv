@@ -1,0 +1,6 @@
+model,protocol,stages,steps_per_stage,tg_K,delta_vs_exp_K,exp_tg_K,s_per_step,ns_per_day,katom_step_per_s
+PCFF,strict,17,5000,350.7,-22.3,373,0.00267,16.160,727.2
+Vivace,strict,17,5000,268.8,-104.2,373,0.0175,2.468,111.1
+PCFF,short,17,1250,395.4,22.4,373,0.00267,16.160,727.2
+MACE-OFF23-medium,short,17,1250,433.4,60.4,373,0.95,0.045,2.06
+Vivace,short,17,1250,490.8,117.8,373,0.0175,2.468,111.1

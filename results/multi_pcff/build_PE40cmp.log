@@ -1,0 +1,25 @@
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+POLY PE smiles *CC* caps ('H*', 'H*') density 0.9 n_ru 40 n_tot 1944 seed 42 field compass
+build result PolymerBuildResult(n_tot=1944, n_ru_per_chain=40, n_chains=8, smiles='*CC*', density=0.9)
+FILE build.emc 4762
+FILE build.esh 543
+FILE system.data 967786
+FILE system.params 5594
+---- system.params head ----
+# LAMMPS parameters created by EMC v9.4.4, build Jul 31 2025 20:33:44
+
+# Variables
+
+variable	seed		index	42
+variable	ntotal		index	1936
+variable	fshape		index	1
+variable	output		index	system
+variable	field		index	compass/compass
+variable	location1	index	/opt/conda/envs/simpoly/lib/python3.12/site-packages/pyemc/emc/field/
+variable	nav		index	0.6022141179
+variable	temperature	index	533
+variable	radius		index	5
+variable	nrelax		index	100
+variable	weight_nonbond	index	0.0001
+atoms 1936 types [1, 2]

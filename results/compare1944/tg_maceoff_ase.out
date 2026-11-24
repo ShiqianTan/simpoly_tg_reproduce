@@ -1,0 +1,16 @@
+/home/tione/notebook/home/tanshiqian/envs/mace/lib/python3.12/site-packages/e3nn/o3/_wigner.py:10: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  _Jd, _W3j_flat, _W3j_indices = torch.load(os.path.join(os.path.dirname(__file__), 'constants.pt'))
+/home/tione/notebook/home/tanshiqian/envs/mace/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+# 1944 atoms, rho0=0.9000 g/cm3, cell=[28.48173251 28.48173251 28.48173251]
+/home/tione/notebook/home/tanshiqian/envs/mace/lib/python3.12/site-packages/mace/calculators/mace.py:226: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  torch.load(f=model_path, map_location=device)
+WARNING:root:Default dtype float32 does not match model dtype float64, converting models to float32.
+Using MACE-OFF23 MODEL for MACECalculator with /root/.cache/mace/MACE-OFF23_medium.model
+Using float32 for MACECalculator, which is faster but less accurate. Recommended for MD. Use float64 for geometry optimization.
+# minimize done t=20.6s rho=0.9000
+/home/tione/notebook/home/tanshiqian/simpoly_tg_repro/compare1944/ase_cooling_maceoff.py:76: DeprecationWarning: Use thermalize_momenta
+  MaxwellBoltzmannDistribution(atoms, temperature_K=533.0, rng=np.random.default_rng(args.seed))
+# Melt at 700 K (NVT)
+# melt_700K: T=707.82 rho=0.89999 s/step=0.3721
+# Pre-equilibration at 533 K (NPT)

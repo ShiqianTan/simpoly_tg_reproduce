@@ -1,0 +1,5 @@
+########## BUILD PMA30 OPLS seeds 1/2/3 ##########
+build PMA30opls_s1 EXIT=0
+build PMA30opls_s2 EXIT=0
+build PMA30opls_s3 EXIT=0
+########## RUNS (slow protocol) ##########

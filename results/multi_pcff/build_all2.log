@@ -1,0 +1,39 @@
+=== PMMA ===
+POLY PMMA smiles *CC(C)(C(=O)OC)* caps ('H*', 'H*') exp_density 0.9
+build result PolymerBuildResult(n_tot=1944, n_ru_per_chain=10, n_chains=12, smiles='*CC(C)(C(=O)OC)*', density=0.9)
+FILE build.emc 4765
+FILE build.esh 552
+FILE data.lmps 164179
+FILE system.data 868537
+FILE system.params 22626
+system.data atoms 1976 vol 24062.293396656776 rho 0.9000000630040861
+atom_types ['C', 'C', 'C', 'H', 'O', 'O']
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+data.lmps atoms 1976 rho 0.9688319900800313 types [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6)]
+=== PMA ===
+POLY PMA smiles *CC(C(=O)OC)* caps ('H*', 'H*') exp_density 0.9
+build result PolymerBuildResult(n_tot=1944, n_ru_per_chain=10, n_chains=15, smiles='*CC(C(=O)OC)*', density=0.9)
+FILE build.emc 4762
+FILE build.esh 549
+FILE data.lmps 162187
+FILE system.data 842932
+FILE system.params 24647
+system.data atoms 1952 vol 25474.236252036255 rho 0.900000062387768
+atom_types ['C', 'C', 'C', 'H', 'O', 'O']
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+data.lmps atoms 1952 rho 0.9528037293618233 types [np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5), np.int64(6)]
+=== PE ===
+POLY PE smiles *CC* caps ('H*', 'H*') exp_density 0.9
+build result PolymerBuildResult(n_tot=1944, n_ru_per_chain=10, n_chains=31, smiles='*CC*', density=0.9)
+FILE build.emc 4753
+FILE build.esh 540
+FILE data.lmps 159697
+FILE system.data 898545
+FILE system.params 5494
+system.data atoms 1922 vol 16161.269040920508 rho 0.9000000623688377
+atom_types ['C', 'H']
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+data.lmps atoms 1922 rho 0.5996734235577775 types [np.int64(1), np.int64(2)]

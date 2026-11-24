@@ -1,0 +1,9 @@
+########## BUILD PE30Lcmp (COMPASS, seed 42) ##########
+########## BUILD PE30Lcmpb (COMPASS, seed 7) ##########
+BUILD PE30Lcmpb EXIT=0
+########## ISO PE30Lcmpb on GPU 1 ##########
+BUILD PE30Lcmp EXIT=0
+########## ISO PE30Lcmp on GPU 0 ##########
+ISO PE30Lcmp EXIT=0
+ISO PE30Lcmpb EXIT=0
+ISO_PEcmp_DONE

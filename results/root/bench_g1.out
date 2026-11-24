@@ -1,0 +1,77 @@
+LAMMPS (22 Jul 2025 - Update 4)
+KOKKOS mode with Kokkos version 4.6.2 is enabled
+  will use up to 1 GPU(s) per node
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (src/KOKKOS/kokkos.cpp:221)
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+MPI detected: For OpenMP binding to work as intended, MPI ranks must be bound to exclusive CPU sets.
+
+  using 1 OpenMP thread(s) per MPI task
+Reading restart file ...
+  restart file = 12 Jun 2025, LAMMPS = 22 Jul 2025
+WARNING: Restart file used different # of processors: 4 vs. 1 (src/read_restart.cpp:629)
+  restoring atom style atomic/kk from restart
+  orthogonal box = (9.219009 1.8387404 6.0840815) to (50.676471 58.05674 53.811399)
+  1 by 1 by 1 MPI processor grid
+  pair style mliap stores no restart info
+  10044 atoms
+  read_restart CPU = 0.078 seconds
+Unused restart file global fix info:
+  fix style: npt, fix ID: final_npt
+Neighbor list info ...
+  update: every = 2 steps, delay = 50 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 7
+  ghost atom cutoff = 7
+  binsize = 7, bins = 6 9 7
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair mliap/kk, perpetual
+      attributes: full, newton on, kokkos_device
+      pair build: full/bin/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+Setting up Verlet run ...
+  Unit style    : metal
+  Current step  : 4990094
+  Time step     : 0.0005
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Per MPI rank memory allocation (min/avg/max) = 4.026e+04 | 4.026e+04 | 4.026e+04 Mbytes
+   Step          Temp         Density         Volume         Press          KinEng         PotEng         TotEng         S/CPU     
+   4990094   538.03628      0.96583526     111235.94      655.24104      698.45698     -848733.31     -848034.86      0            
+   4990100   535.32727      0.96583097     111236.43      158.47048      694.94025     -848729.94     -848035         5.337244     
+   4990200   532.0078       0.96572243     111248.94      6.3102888      690.63105     -848729.38     -848038.74      5.5991356    
+   4990300   528.87074      0.9660235      111214.26     -1350.7957      686.55864     -848735.5      -848048.94      5.6474145    
+   4990394   525.66387      0.96733031     111064.02      313.24728      682.39562     -848740.88     -848058.48      5.5018076    
+Loop time of 53.7767 on 1 procs for 300 steps with 10044 atoms
+
+Performance: 0.241 ns/day, 99.586 hours/ns, 5.579 timesteps/s, 56.032 katom-step/s
+99.8% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 48.576     | 48.576     | 48.576     |   0.0 | 90.33
+Neigh   | 0.018173   | 0.018173   | 0.018173   |   0.0 |  0.03
+Comm    | 0.026225   | 0.026225   | 0.026225   |   0.0 |  0.05
+Output  | 0.0026543  | 0.0026543  | 0.0026543  |   0.0 |  0.00
+Modify  | 5.1407     | 5.1407     | 5.1407     |   0.0 |  9.56
+Other   |            | 0.01325    |            |       |  0.02
+
+Nlocal:          10044 ave       10044 max       10044 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:          11595 ave       11595 max       11595 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:  1.30743e+06 ave 1.30743e+06 max 1.30743e+06 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 1307426
+Ave neighs/atom = 130.16985
+Neighbor list builds = 6
+Dangerous builds = 6
+Total wall time: 0:01:30

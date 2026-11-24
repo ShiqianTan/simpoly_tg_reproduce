@@ -1,0 +1,17 @@
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+# 1944 atoms, rho0=0.9000 g/cm3, cell=[28.48173251 28.48173251 28.48173251]
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/atoms.py:432: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  a.shape = (-1,) + shape
+/home/tione/notebook/home/tanshiqian/github/polymer/tg/simpoly/src/simpoly/vivace/data/io.py:119: UserWarning: unrecognized type <class 'str'> for key 'comment'
+  warnings.warn(f"unrecognized type {type(v)} for key '{k}'")
+W0913 21:19:58.852000 2567497 torch/fx/_symbolic_trace.py:53] is_fx_tracing will return true for both fx.symbolic_trace and torch.export. Please use is_fx_tracing_symbolic_tracing() for specifically fx.symbolic_trace or torch.compiler.is_compiling() for specifically torch.export/compile.
+# minimize done t=89.0s rho=0.9000
+/home/tione/notebook/home/tanshiqian/simpoly_tg_repro/compare1944/ase_cooling_vivace.py:76: DeprecationWarning: Use thermalize_momenta
+  MaxwellBoltzmannDistribution(atoms, temperature_K=533.0, rng=np.random.default_rng(args.seed))
+# Melt at 700 K (NVT)
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/md/md.py:128: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+  self.masses.shape = (-1, 1)
+EXIT=137

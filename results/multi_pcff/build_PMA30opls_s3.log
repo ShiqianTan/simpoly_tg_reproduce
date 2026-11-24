@@ -1,0 +1,25 @@
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+POLY PMA smiles *CC(C(=O)OC)* caps ('H*', 'H*') density 0.9 n_ru 30 n_tot 1944 seed 3 field opls
+build result PolymerBuildResult(n_tot=1944, n_ru_per_chain=30, n_chains=5, smiles='*CC(C(=O)OC)*', density=0.9)
+FILE build.emc 4761
+FILE build.esh 548
+FILE system.data 678260
+FILE system.params 5054
+---- system.params head ----
+# LAMMPS parameters created by EMC v9.4.4, build Jul 31 2025 20:33:44
+
+# Variables
+
+variable	seed		index	3
+variable	ntotal		index	1810
+variable	fshape		index	1
+variable	output		index	system
+variable	field		index	opls/2012/opls-aa
+variable	location1	index	/opt/conda/envs/simpoly/lib/python3.12/site-packages/pyemc/emc/field/
+variable	nav		index	0.6022141179
+variable	temperature	index	533
+variable	radius		index	5
+variable	nrelax		index	100
+variable	weight_nonbond	index	0.0001
+atoms 1810 types [1, 2, 3, 4, 5]

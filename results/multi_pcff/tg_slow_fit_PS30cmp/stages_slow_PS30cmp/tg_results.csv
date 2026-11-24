@@ -1,0 +1,2 @@
+model,poly_id,tg_mean_cf,tg_std_cf,tg_sem_t68,tg_median_cf,n_seeds,n_seeds_failed,chosen_basis,popt_Tg,popt_rho0,popt_a,popt_b,popt_c,tg_exp_val,tg_delta,tg_ae
+COMPASS,PS30cmp,323.63834709356274,,,323.63834709356274,1,0,"hybrid_sc_upper_edge[310,340]_fit_tg≈324",323.63834709356274,1.0088876340240747,0.0003285482988306893,0.00012610690284080718,-330.00035099877914,,,

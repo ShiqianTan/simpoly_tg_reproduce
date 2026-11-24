@@ -1,0 +1,57 @@
+LAMMPS (22 Jul 2025 - Update 4)
+KOKKOS mode with Kokkos version 4.6.2 is enabled
+  will use up to 1 GPU(s) per node
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (src/KOKKOS/kokkos.cpp:221)
+  using 1 OpenMP thread(s) per MPI task
+package kokkos
+package kokkos newton on neigh half
+atom_style      atomic
+atom_modify map array sort 0 2.0
+units           metal
+newton          on
+read_restart       final_npt.restart
+Reading restart file ...
+  restart file = 12 Jun 2025, LAMMPS = 22 Jul 2025
+WARNING: Restart file used different # of processors: 4 vs. 1 (src/read_restart.cpp:629)
+  restoring atom style atomic/kk from restart
+  orthogonal box = (9.219009 1.8387404 6.0840815) to (50.676471 58.05674 53.811399)
+  1 by 1 by 1 MPI processor grid
+  pair style mliap stores no restart info
+  10044 atoms
+  read_restart CPU = 0.031 seconds
+pair_style mliap unified /checkpoints/cueq-0.8.mliap.pt 0
+pair_coeff * * C C C H
+
+# original box: (9.219,1.839,6.084)-(50.676,58.057,53.811)
+# final box 30 x 34 x 30 A; keep atoms inset by 1.5 A from every face
+# so that periodic face images are >= 3 A apart (no spurious contacts)
+region          sub block 10.719 37.719 3.339 34.339 7.584 34.584 units box
+group           keep region sub
+2079 atoms in group keep
+group           drop subtract all keep
+7965 atoms in group drop
+delete_atoms    group drop
+Deleted 7965 atoms, new total = 2079
+change_box      all x final 9.219 39.219 y final 1.839 35.839 z final 6.084 36.084
+Changing box ...
+  orthogonal box = (9.219 1.8387404 6.0840815) to (39.219 58.05674 53.811399)
+  orthogonal box = (9.219 1.839 6.0840815) to (39.219 35.839 53.811399)
+  orthogonal box = (9.219 1.839 6.084) to (39.219 35.839 36.084)
+
+write_data      small.data
+System init for write_data ...
+Unused restart file global fix info:
+  fix style: npt, fix ID: final_npt
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 8.5
+  ghost atom cutoff = 8.5
+  binsize = 8.5, bins = 4 4 4
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair mliap/kk, perpetual
+      attributes: full, newton on, kokkos_device
+      pair build: full/bin/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+Total wall time: 0:00:05

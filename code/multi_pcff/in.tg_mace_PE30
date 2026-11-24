@@ -1,0 +1,120 @@
+# MACE-OFF23 cooling scan PE30, EMC cell (melt 2.5ps @ 0.5fs, 1250 steps/stage)
+atom_style      atomic
+atom_modify     map array sort 0 2.0
+units           metal
+newton          on
+read_data       /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/PE30/data.lmps
+pair_style      mliap unified /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/compare1944/MACE-OFF23_medium-mliap32_lammps.pt 0
+pair_coeff      * * C H
+mass 1 12.01115
+mass 2 1.00797
+neighbor        0.5 bin
+neigh_modify    delay 50 every 2 check yes
+thermo_style    custom step temp density vol press ke pe etotal spcpu
+thermo_modify   flush yes
+thermo          125
+timestep        0.0005
+fix fMOM all momentum 100 linear 1 1 1 angular
+velocity all create 433.0 42 mom yes rot yes dist gaussian
+
+# Minimize
+min_style cg
+minimize 1e-4 1e-6 1000 10000
+
+# Melt at 700 K (NVT)
+timestep        0.0005
+fix melt all nvt temp 700.0 700.0 0.05
+run 5000
+unfix melt
+timestep        0.0005
+
+# Pre-equilibration at 433.0 K (NPT)
+fix pre all npt temp 433.0 433.0 0.05 aniso 1.000 1.000 0.5
+run 5000
+unfix pre
+
+# Stage: cool_000_433K
+fix cool_000_433K all npt temp 433 433 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_000_433K
+
+# Stage: cool_001_413K
+fix cool_001_413K all npt temp 413 413 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_001_413K
+
+# Stage: cool_002_393K
+fix cool_002_393K all npt temp 393 393 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_002_393K
+
+# Stage: cool_003_373K
+fix cool_003_373K all npt temp 373 373 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_003_373K
+
+# Stage: cool_004_353K
+fix cool_004_353K all npt temp 353 353 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_004_353K
+
+# Stage: cool_005_333K
+fix cool_005_333K all npt temp 333 333 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_005_333K
+
+# Stage: cool_006_313K
+fix cool_006_313K all npt temp 313 313 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_006_313K
+
+# Stage: cool_007_293K
+fix cool_007_293K all npt temp 293 293 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_007_293K
+
+# Stage: cool_008_273K
+fix cool_008_273K all npt temp 273 273 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_008_273K
+
+# Stage: cool_009_253K
+fix cool_009_253K all npt temp 253 253 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_009_253K
+
+# Stage: cool_010_233K
+fix cool_010_233K all npt temp 233 233 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_010_233K
+
+# Stage: cool_011_213K
+fix cool_011_213K all npt temp 213 213 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_011_213K
+
+# Stage: cool_012_193K
+fix cool_012_193K all npt temp 193 193 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_012_193K
+
+# Stage: cool_013_173K
+fix cool_013_173K all npt temp 173 173 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_013_173K
+
+# Stage: cool_014_153K
+fix cool_014_153K all npt temp 153 153 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_014_153K
+
+# Stage: cool_015_133K
+fix cool_015_133K all npt temp 133 133 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_015_133K
+
+# Stage: cool_016_113K
+fix cool_016_113K all npt temp 113 113 0.05 aniso 1.000 1.000 0.5
+run 1250
+unfix cool_016_113K
+

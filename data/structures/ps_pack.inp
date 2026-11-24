@@ -1,0 +1,53 @@
+tolerance 2.0
+filetype pdb
+output ps_packed.pdb
+seed 12345
+pbc 29.780 29.780 29.780
+structure ps_chain.pdb
+  number 1
+  inside cube 0. 0. 0. 29.780
+end structure
+structure ps_chain.pdb
+  number 1
+  inside cube 0. 0. 0. 29.780
+end structure
+structure ps_chain.pdb
+  number 1
+  inside cube 0. 0. 0. 29.780
+end structure
+structure ps_chain.pdb
+  number 1
+  inside cube 0. 0. 0. 29.780
+end structure
+structure ps_chain.pdb
+  number 1
+  inside cube 0. 0. 0. 29.780
+end structure
+structure ps_chain.pdb
+  number 1
+  inside cube 0. 0. 0. 29.780
+end structure
+structure ps_chain.pdb
+  number 1
+  inside cube 0. 0. 0. 29.780
+end structure
+structure ps_chain.pdb
+  number 1
+  inside cube 0. 0. 0. 29.780
+end structure
+structure ps_chain.pdb
+  number 1
+  inside cube 0. 0. 0. 29.780
+end structure
+structure ps_chain.pdb
+  number 1
+  inside cube 0. 0. 0. 29.780
+end structure
+structure ps_chain.pdb
+  number 1
+  inside cube 0. 0. 0. 29.780
+end structure
+structure ps_chain.pdb
+  number 1
+  inside cube 0. 0. 0. 29.780
+end structure

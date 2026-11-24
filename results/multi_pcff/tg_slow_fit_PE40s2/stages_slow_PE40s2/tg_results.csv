@@ -1,0 +1,2 @@
+model,poly_id,tg_mean_cf,tg_std_cf,tg_sem_t68,tg_median_cf,n_seeds,n_seeds_failed,chosen_basis,popt_Tg,popt_rho0,popt_a,popt_b,popt_c,tg_exp_val,tg_delta,tg_ae
+PCFF,PE40s2,263.2966858550426,,,263.2966858550426,1,0,"hybrid_sc_upper_edge[250,280]_fit_tg≈263",263.2966858550426,0.7873949379936042,0.00027196379375185516,0.0002979633660335854,2.9999999999999996,,,

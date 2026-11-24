@@ -1,0 +1,27 @@
+/opt/conda/envs/simpoly/lib/python3.12/site-packages/ase/io/lammpsdata.py:72: FutureWarning: "style" is deprecated; please use "atom_style".
+  warnings.warn(
+POLY PE smiles *CC* caps ('H*', 'H*') density 0.9 n_ru 30 n_tot 8000 seed 42 field opls
+build result PolymerBuildResult(n_tot=8000, n_ru_per_chain=30, n_chains=43, smiles='*CC*', density=0.9)
+FILE build.emc 4753
+FILE build.esh 540
+FILE system.data 3310417
+FILE system.params 2963
+---- system.params head ----
+# LAMMPS parameters created by EMC v9.4.4, build Jul 31 2025 20:33:44
+
+# Variables
+
+variable	seed		index	42
+variable	ntotal		index	8008
+variable	fshape		index	1
+variable	output		index	system
+variable	field		index	opls/2012/opls-aa
+variable	location1	index	/opt/conda/envs/simpoly/lib/python3.12/site-packages/pyemc/emc/field/
+variable	nav		index	0.6022141179
+variable	temperature	index	533
+variable	radius		index	5
+variable	nrelax		index	100
+variable	weight_nonbond	index	0.0001
+atoms 8008 types [1, 2]
+wrote /home/tione/notebook/home/tanshiqian/simpoly_tg_repro/multi_pcff/in.tg_pcff_PE30Lopls n_stages 17 temps [433, 413, 393, 373, 353, 333, 313, 293, 273, 253, 233, 213, 193, 173, 153, 133, 113]
+BUILD_DONE PE30Lopls
